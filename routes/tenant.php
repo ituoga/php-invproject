@@ -18,7 +18,7 @@ use Stancl\Tenancy\Features\UserImpersonation;
 
 Route::middleware([
     'web',
-    InitializeTenancyByDomainOrSubdomain::class,
+    InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     
