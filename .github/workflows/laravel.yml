@@ -4,9 +4,7 @@ on:
   release:
     types: [ published ]
   push:
-    branches: [ "*" ]
-  pull_request:
-    branches: [ "*" ]
+    branches: [ "main" ]
 
 jobs:
   laravel-tests:
