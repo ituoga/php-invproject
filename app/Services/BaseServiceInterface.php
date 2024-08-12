@@ -13,7 +13,7 @@ interface BaseServiceInterface
 
     public function all(): Factory|View;
 
-    public function create(): Factory|View;
+    public function create(null|array $data): Factory|View;
     public function store($data): RedirectResponse;
 
     public function read($id): Factory|View;

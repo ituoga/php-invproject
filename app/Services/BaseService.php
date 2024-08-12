@@ -34,7 +34,7 @@ abstract class BaseService implements BaseServiceInterface
         return $this->view->list(['items' => $items]);
     }
 
-    public function create(): Factory|View
+    public function create($data=[]): Factory|View
     {
         return $this->view->create([]);
     }
@@ -61,7 +61,11 @@ abstract class BaseService implements BaseServiceInterface
     {
         $data = $request;
         if ($request instanceof Request) {
-            $data = $request->validated();
+            if(method_exists($request, 'validated')) {
+                $data = $request->validated();
+            } else {
+                $data = $request->all();
+            }
         }
         $item = $this->repository->read($id);
         $item->fill($data);
