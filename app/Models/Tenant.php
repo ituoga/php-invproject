@@ -3,17 +3,16 @@
 namespace App\Models;
 
 use Exception;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
 use Stancl\Tenancy\Contracts\TenantWithDatabase;
 use Stancl\Tenancy\Database\Concerns\HasDatabase;
 use Stancl\Tenancy\Database\Concerns\HasDomains;
-use Stancl\Tenancy\Database\Models\Domain;
+
 
 class Tenant extends BaseTenant implements TenantWithDatabase
 {
+ 
     use HasDatabase, HasDomains;
 
 
@@ -41,6 +40,7 @@ class Tenant extends BaseTenant implements TenantWithDatabase
 
     public function route($route, $parameters = [], $absolute = true)
     {
+        // @phpstan-ignore-next-line
         if (! $this->primary_domain) {
             throw new Exception("Tenant {$this->id} does not have a primary domain.");
         }
