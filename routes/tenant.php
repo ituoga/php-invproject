@@ -18,10 +18,13 @@ use Stancl\Tenancy\Features\UserImpersonation;
 
 Route::middleware([
     'web',
-    InitializeTenancyByDomain::class,
+    InitializeTenancyByDomainOrSubdomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     
+    Route::get("/", function () {
+        return "tenant";
+    });
 
     Route::get('/impersonate/{token}', function ($token) {
         return UserImpersonation::makeResponse($token);
