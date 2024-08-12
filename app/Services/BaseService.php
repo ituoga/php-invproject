@@ -5,7 +5,11 @@ namespace App\Services;
 use App\Http\Requests\StoreInvoiceRequest;
 use App\Repositories\BaseRepositoryInterface;
 use App\Views\BaseViewInterface;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+
+use \Illuminate\Contracts\View\Factory;
+use \Illuminate\Contracts\View\View;
 
 abstract class BaseService implements BaseServiceInterface
 {
@@ -14,7 +18,7 @@ abstract class BaseService implements BaseServiceInterface
     protected string $redirectStore = "/";
     protected string $redirectUpdate = "/";
     protected string $redirectDelete = "/";
-    
+
     protected BaseRepositoryInterface $repository;
 
     protected BaseViewInterface $view;
@@ -24,39 +28,39 @@ abstract class BaseService implements BaseServiceInterface
         $this->view->setModule($module);
     }
 
-    public function all()
+    public function all(): Factory|View
     {
         $items = $this->repository->all();
-        return $this->view->list(['items'=>$items]);
+        return $this->view->list(['items' => $items]);
     }
 
-    public function create()
+    public function create(): Factory|View
     {
         return $this->view->create([]);
     }
 
-    public function store($data)
+    public function store($data): RedirectResponse
     {
         $this->repository->create($data);
         return redirect()->to($this->redirectStore);
     }
 
-    public function read($id)
+    public function read($id): Factory|View
     {
         $item = $this->repository->read($id);
-        return $this->view->view(['item'=>$item]);
+        return $this->view->view(['item' => $item]);
     }
 
-    public function edit($id)
+    public function edit($id): Factory|View
     {
         $item = $this->repository->read($id);
-        return $this->view->edit(['item'=>$item]);
+        return $this->view->edit(['item' => $item]);
     }
 
-    public function update($id, $request)
+    public function update($id, $request): RedirectResponse
     {
         $data = $request;
-        if($request instanceof Request){
+        if ($request instanceof Request) {
             $data = $request->validated();
         }
         $item = $this->repository->read($id);
@@ -66,7 +70,7 @@ abstract class BaseService implements BaseServiceInterface
         return redirect()->to($this->redirectUpdate);
     }
 
-    public function delete($id)
+    public function delete($id): RedirectResponse
     {
         $item = $this->repository->read($id);
         $item->delete();

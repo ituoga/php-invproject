@@ -28,7 +28,7 @@ class ContrahentController extends CrudController
         return redirect()->route('contrahents.index');
     }
 
-    public function update($id = null, Request $_data): RedirectResponse
+    public function update(mixed $id = null, Request $request): RedirectResponse
     {
         $request = app(UpdateContrahentRequest::class);
         $data = $request->validated();

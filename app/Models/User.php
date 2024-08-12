@@ -12,7 +12,7 @@ use Laravel\Cashier\Billable;
 use Stancl\Tenancy\Database\Models\Domain;
 use Stancl\Tenancy\Database\Models\ImpersonationToken;
 
-class User extends Authenticatable
+class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVerifyEmail
 {
     use HasFactory, Notifiable;
     use Billable;

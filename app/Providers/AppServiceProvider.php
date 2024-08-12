@@ -82,8 +82,8 @@ class AppServiceProvider extends ServiceProvider
             /**
              * @var User $user
              */
-            $user = auth();
-            $view->with('current_user', $user->user());
+            $user = auth()->user();
+            $view->with('current_user', $user);
         });
     }
 

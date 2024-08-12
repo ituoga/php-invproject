@@ -2,22 +2,25 @@
 
 namespace App\Services;
 
+use \Illuminate\Contracts\View\Factory;
+use \Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+
 interface BaseServiceInterface
 {
 
     public function setModule(string $module);
 
-    public function all();
+    public function all(): Factory|View;
 
-    public function create();
-    public function store($data);
+    public function create(): Factory|View;
+    public function store($data): RedirectResponse;
 
-    public function read($id);
+    public function read($id): Factory|View;
 
-    public function edit($id);
-    
-    public function update($id, $data);
+    public function edit($id): Factory|View;
 
-    public function delete($id);
+    public function update($id, $data): RedirectResponse;
 
+    public function delete($id): RedirectResponse;
 }

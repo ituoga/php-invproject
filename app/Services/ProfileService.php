@@ -8,6 +8,10 @@ use App\Views\BaseViewInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
+use \Illuminate\Contracts\View\Factory;
+use \Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+
 class ProfileService extends BaseService implements BaseServiceInterface
 {
 
@@ -18,7 +22,7 @@ class ProfileService extends BaseService implements BaseServiceInterface
         $this->view = $view;
     }
 
-    public function edit($id=null)
+    public function edit($id=null): Factory|View
     {   
         return $this->view->edit([
             'user' => request()->user(),
@@ -26,7 +30,7 @@ class ProfileService extends BaseService implements BaseServiceInterface
         ]);
     }
 
-    public function update($id, $data) 
+    public function update($id, $data): RedirectResponse 
     {
         $request = app(ProfileUpdateRequest::class);
         $request->user()->fill($request->validated());
@@ -40,7 +44,7 @@ class ProfileService extends BaseService implements BaseServiceInterface
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
-    public function destroy($id) 
+    public function destroy($id): RedirectResponse
     {
         request()->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],

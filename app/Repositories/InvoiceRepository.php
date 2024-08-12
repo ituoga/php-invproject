@@ -6,12 +6,16 @@ use App\Models\Invoice;
 use App\Models\InvoiceLine;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * 
+ * @property Invoice $model
+ */
 class InvoiceRepository extends BaseRepository implements BaseRepositoryInterface
 {
 
     public function __construct(
         Invoice $model,
-        InvoiceLine $lineModel,
+        public InvoiceLine $lineModel,
     ){
         $this->model = $model;
     }

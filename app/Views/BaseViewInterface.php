@@ -2,18 +2,22 @@
 
 namespace App\Views;
 
+use \Illuminate\Contracts\View\Factory;
+use \Illuminate\Contracts\View\View;
+
+
 interface BaseViewInterface
 {
 
-    public function setModule(string $module);
+    public function setModule(string $module): void;
 
-    public function list($data);
+    public function list(array $data): Factory|View;
 
-    public function create($data);
+    public function create(array $data): Factory|View;
 
-    public function view($data);
+    public function view(array $data): Factory|View;
 
-    public function edit($data);
+    public function edit(array $data) : Factory|View;
     
-    public function delete($data);
+    public function delete(array $data) : Factory|View;
 }

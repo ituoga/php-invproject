@@ -20,7 +20,7 @@ abstract class CrudController
     protected ?string $updateRequest;
     protected BaseServiceInterface $service;
 
-    protected function setService(BaseServiceInterface $service)
+    protected function setService(BaseServiceInterface $service): void
     {
         $this->service = $service;
         $this->service->setModule($this->module);
@@ -55,7 +55,7 @@ abstract class CrudController
         return $this->service->edit($id);
     }
 
-    public function update($id = null, Request $request)
+    public function update(mixed $id = null, Request $request)
     {
         if ($this->updateRequest) {
             $request = app($this->updateRequest);
