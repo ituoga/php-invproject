@@ -93,6 +93,7 @@ RUN npm run build
 USER root
 RUN docker-php-ext-install pcntl
 RUN docker-php-ext-configure pcntl --enable-pcntl
+RUN docker-php-ext-configure bcmath --enable-bcmath
 
 COPY .docker/prod/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
