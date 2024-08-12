@@ -42,4 +42,4 @@ RUN rm -rf node_modules
 
 
 
-ENTRYPOINT ["php", "artisan", "octane:start", "--port", "80", "--host", "0.0.0.0"]
+ENTRYPOINT ["php", "artisan", "octane:start", "--port", "80", "--host", "0.0.0.0", "--server=swoole"]
