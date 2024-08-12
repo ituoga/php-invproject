@@ -44,7 +44,7 @@ jobs:
     name: Send notification to Matrix Channel
     if: always()
     runs-on: ubuntu-latest
-    needs: [laravel-tests, phpstan]
+    needs: [laravel-tests, phpstan, docker_publish]
     steps:
       - uses: Cadair/matrix-notify-action@main
         id: message
@@ -89,5 +89,5 @@ jobs:
         with:
           image_name: ${{ github.repository }}  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          dockerfile: .docker/Dockerfile
+          dockerfile: .docker/php/Dockerfile
     
