@@ -51,8 +51,8 @@ jobs:
         with:
           matrix_token: ${{ secrets.matrix_access_token }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          homeserver: 'https://matrix.group.lt'
-          roomid: '!iLcZUEnGZrDYdXhiTU:group.lt'
+          homeserver: ${{ vars.matrix_homeserver }}
+          roomid: ${{ vars.matrix_roomid }}
 
       - name: Print the event ID
         run: echo "Sent Matrix Event '${{ steps.message.outputs.eventId }}'"
