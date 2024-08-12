@@ -33,7 +33,7 @@ abstract class CrudController
 
     public function create()
     {
-        return $this->service->create();
+        return $this->service->create([]);
     }
 
     public function store(Request $request): RedirectResponse

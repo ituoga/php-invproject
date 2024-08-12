@@ -7,6 +7,6 @@ class CreateController extends BaseController
 {
     public function __invoke()
     {
-        return $this->service->create();
+        return $this->service->create([]);
     }
 }
