@@ -9,7 +9,7 @@
         "laravel/cashier": "^15.4",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "nwidart/laravel-modules": "11",
+        "nwidart/laravel-modules": "11.0.11",
         "stancl/tenancy": "^3.8"
     },
     "require-dev": {
