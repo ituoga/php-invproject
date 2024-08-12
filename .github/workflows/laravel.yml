@@ -112,7 +112,7 @@ jobs:
           file: .docker/prod/Dockerfile
           push: true
           tags: |
-            ${{ github.repository }}:${{ env.VERSION_TAG }}
-            ${{ github.repository }}:${{ env.LATEST_TAG }}
+            ghcr.io/${{ github.repository }}:${{ env.VERSION_TAG }}
+            ghcr.io/${{ github.repository }}:${{ env.LATEST_TAG }}
 
      
