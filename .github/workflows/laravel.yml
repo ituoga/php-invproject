@@ -91,5 +91,5 @@ jobs:
           image_name: ${{ github.repository }}  # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}
           context: .
-          dockerfile: .docker/prodphp/Dockerfile
+          dockerfile: .docker/prod/Dockerfile
     
