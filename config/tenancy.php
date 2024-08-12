@@ -21,7 +21,7 @@ return [
         "www.saas.test",
         '127.0.0.1',
         'localhost',
-    ],
+    ]+[env("CENTRAL_DOMAIN"),
 
     /**
      * Tenancy bootstrappers are executed when tenancy is initialized.
