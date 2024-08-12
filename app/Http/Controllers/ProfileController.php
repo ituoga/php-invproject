@@ -17,7 +17,7 @@ class ProfileController extends CrudController
     public function __construct(
         BaseServiceInterface $service,
     ){
-        $this->setService($service);
+        parent::setService($service);
     }
 
 }
