@@ -7,6 +7,9 @@ use App\Repositories\BaseRepositoryInterface;
 use App\Views\BaseViewInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use \Illuminate\Contracts\View\Factory;
+use \Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class ConfigService extends BaseService implements BaseServiceInterface
 {
@@ -22,9 +25,9 @@ class ConfigService extends BaseService implements BaseServiceInterface
     /**
      * Returns model 
      * @param mixed $id
-     * @return mixed
+     * @return Factory|View
      */
-    public function read($id = null)
+    public function read($id = null): Factory|View
     {
         return $this->repository->read($id);
     }
@@ -32,9 +35,9 @@ class ConfigService extends BaseService implements BaseServiceInterface
     /**
      * Creates or updates model
      * @param mixed $data
-     * @return mixed
+     * @return RedirectResponse
      */
-    public function create($data = [])
+    public function store($data = []): RedirectResponse
     {
         $model = $this->repository->read(null);
         if (!empty($model)) {
