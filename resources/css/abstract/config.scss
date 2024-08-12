@@ -1,0 +1,67 @@
+// helpers loop variables scss
+$padding-top-bottom-from: 0;
+$padding-top-bottom-to: 40;
+$padding-top-bottom-step: 2;
+
+$padding-left-right-from: 0;
+$padding-left-right-to: 0;
+$padding-left-right-step: 2;
+
+$margin-top-bottom-from: 0;
+$margin-top-bottom-to: 40;
+$margin-top-bottom-step: 2;
+
+$margin-left-right-from: 0;
+$margin-left-right-to: 0;
+$margin-left-right-step: 2;
+
+$helpers-xl: false; // desktop
+$helpers-sm: false; // tablet
+$helpers-xs: false; // mobile
+
+// bootstrap
+$grid-gutter-width: 1.3rem !default;
+
+:root {
+  /* colors with hex values */
+  --black: #000;
+  --white: #fff;
+  --silver: #B9B9B9;
+  --silver-chalice: #A0A0A0;
+  --dove-gray: #6C6C6C;
+  --pattens-blue: #D9EBFF;
+  --science-blue: #0062CC;
+  --blaze-orange: #FF6B00;
+  --persian-green: #00B294;
+  --elm: #1C7B6B;
+  --yellow-orange: #F9A33F;
+  --rose-of-sharon: #B56200;
+  --dusty-gray: #969696;
+  --scarlet: #F51D00;
+
+  /* reassign color vars to semantic color scheme */
+  --text-color: var(--black);
+  --secondary-text-color: var(--dove-gray);
+  --deco-color: var(--science-blue);
+  --secondary-deco-color: var(--blaze-orange);
+
+  /* font */
+  --primary-font: "Inter", sans-serif;
+
+  /* other elements */
+  --primary-transition: .2s linear;
+  --placeholder-color: var(--silver-chalice);
+  --focus-color: var(--black);
+  --disabled-color: var(--silver-chalice);
+  --border-color: var(--silver);
+  --primary-radius: 5px;
+  --error-color: var(--scarlet);
+}
+
+// mixin scss
+@mixin last-child {
+  & > *:last-child {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}

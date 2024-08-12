@@ -1,0 +1,13 @@
+.availability {
+  &-col {
+    border: 1px solid var(--dove-gray);
+    border-radius: var(--primary-radius);
+    padding: 15px;
+    @include last-child;
+    &__image {
+      border-radius: var(--primary-radius);
+      margin: 0 0 8px 0;
+      display: inline-block;
+    }
+  }
+}

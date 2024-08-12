@@ -1,0 +1,13 @@
+version: '3'
+
+tasks:
+  default:
+    deps: [queue, server, build]
+  build:
+    npm run build
+  queue:
+    php artisan queue:listen 
+  server:
+    php artisan serve --host=0.0.0.0 --port=4000 -vvv
+  fresh:
+    php artisan migrate:fresh --seed && php artisan tenants:seed TenantSeeder

@@ -1,0 +1,299 @@
+h1,
+.h1 {
+  font: bold clamp(24px, 5vw, 40px)/1.1 var(--primary-font);
+  padding: 0 0 20px 0;
+}
+h2,
+.h2 {
+  font: bold clamp(24px, 5vw, 30px)/1.1 var(--primary-font);
+  padding: 0 0 20px 0;
+}
+h3,
+.h3 {
+  font: bold clamp(24px, 5vw, 28px)/1.1 var(--primary-font);
+  padding: 0 0 20px 0;
+}
+h4,
+.h4 {
+  font: bold 20px/1.1 var(--primary-font);
+  padding: 0 0 20px 0;
+}
+h5,
+.h5 {
+  font: bold 18px/1.1 var(--primary-font);
+  padding: 0 0 20px 0;
+}
+h6,
+.h6 {
+  font: bold 12px/1.1 var(--primary-font);
+  padding: 0 0 20px 0;
+}
+ul,
+ol {
+  &:not([class]) {
+    font: 16px/1.3 var(--primary-font);
+    padding: 0 0 20px 0;
+    li {
+      &:before {
+        display: inline-block;
+      }
+    }
+  }
+}
+ul {
+  &:not([class]) {
+    li {
+      &:before {
+        width: 5px;
+        height: 5px;
+        content: "";
+        background: var(--text-color);
+        border-radius: 50%;
+        margin: 0 8px 0 0;
+        position: relative;
+        top: -2px;
+      }
+    }
+  }
+}
+ol {
+  &:not([class]) {
+    counter-reset: li;
+    li {
+      &:before {
+        font-weight: bold;
+        content: counter(li) ".";
+        counter-increment: li;
+        margin: 0 5px 0 0;
+      }
+    }
+  }
+}
+dl {
+  &:not([class]) {
+    font: 16px/1.3 var(--primary-font);
+    border-bottom: 1px solid var(--pattens-blue);
+    margin: 0 0 20px 0;
+    grid-template-columns: repeat(2, auto);
+    display: grid;
+    @include media-breakpoint-down(sm) {
+      grid-template-columns: 1fr;
+    }
+    dt {
+      font-weight: bold;
+      border-top: 1px solid var(--pattens-blue);
+      padding: 12px 15px 12px 0;
+      @include media-breakpoint-down(sm) {
+        padding-bottom: 5px;
+      }
+    }
+    dd {
+      border-top: 1px solid var(--pattens-blue);
+      padding: 12px 0;
+      @include media-breakpoint-down(sm) {
+        border-top: none;
+        padding-top: 0;
+      }
+    }
+  }
+}
+p {
+  font: 16px/1.3 var(--primary-font);
+  padding: 0 0 20px 0;
+}
+a {
+  &:not([class]) {
+    color: var(--deco-color);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &.regular {
+    color: var(--deco-color);
+    text-decoration: none;
+    &.active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &[href^="mailto:"],
+  &[href^="http"] {
+    word-break: break-all;
+  }
+  &:focus-visible {
+    outline: 1px solid var(--deco-color);
+  }
+}
+table {
+  &:not([class]) {
+    width: 100%;
+    font: 16px/1.3 var(--primary-font);
+    @include media-breakpoint-up(xl) {
+      border: 2px solid var(--deco-color);
+      border-radius: var(--primary-radius);
+      margin: 0 0 20px 0;
+    }
+    th {
+      color: var(--white);
+      text-align: left;
+      background: var(--deco-color);
+      padding: 10px 15px;
+    }
+    td {
+      border-bottom: 1px solid var(--pattens-blue);
+      padding: 15px;
+      @include media-breakpoint-down(xl) {
+        padding-right: 15px;
+        display: flex;
+        &[data-th]:before {
+          width: calc(30% + 15px);
+          max-width: 150px;
+          font-weight: bold;
+          content: attr(data-th);
+          flex: 0 0 auto;
+        }
+      }
+    }
+    tr {
+      @include media-breakpoint-down(xl) {
+        border: 2px solid var(--deco-color);
+        border-radius: var(--primary-radius);
+        margin: 0 0 20px 0;
+        display: flex;
+        flex-flow: column nowrap;
+        &:not([data-tr]) {
+          display: none;
+        }
+        &[data-tr]:before {
+          color: var(--white);
+          font-weight: bold;
+          background: var(--deco-color);
+          content: attr(data-tr);
+          padding: 10px 15px;
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+hr {
+  height: 1px;
+  background: var(--pattens-blue);
+  border: none;
+  margin: 0 0 20px 0;
+}
+.color {
+  &-persian-green {
+    color: var(--persian-green);
+  }
+  &-yellow-orange {
+    color: var(--yellow-orange);
+  }
+  &-dusty-gray {
+    color: var(--dusty-gray);
+  }
+  &-scarlet {
+    color: var(--scarlet);
+  }
+}
+.text-color {
+  color: var(--text-color) !important;
+}
+.text-color-deco {
+  color: var(--deco-color) !important;
+}
+.text-color-error {
+  color: var(--error-color) !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-justify {
+  text-align: justify !important;
+}
+.text-nowrap {
+  white-space: nowrap !important;
+}
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+.text-normal {
+  font-weight: normal !important;
+}
+@include media-breakpoint-between(md, xl) {
+  .text-left-sm {
+    text-align: left !important;
+  }
+  .text-right-sm {
+    text-align: right !important;
+  }
+  .text-center-sm {
+    text-align: center !important;
+  }
+  .text-justify-sm {
+    text-align: justify !important;
+  }
+  .text-nowrap-sm {
+    white-space: nowrap !important;
+  }
+  .text-lowercase-sm {
+    text-transform: lowercase !important;
+  }
+  .text-uppercase-sm {
+    text-transform: uppercase !important;
+  }
+  .text-capitalize-sm {
+    text-transform: capitalize !important;
+  }
+  .text-normal-sm {
+    font-weight: normal !important;
+  }
+}
+@include media-breakpoint-down(md) {
+  .text-left-xs {
+    text-align: left !important;
+  }
+  .text-right-xs {
+    text-align: right !important;
+  }
+  .text-center-xs {
+    text-align: center !important;
+  }
+  .text-justify-xs {
+    text-align: justify !important;
+  }
+  .text-nowrap-xs {
+    white-space: nowrap !important;
+  }
+  .text-lowercase-xs {
+    text-transform: lowercase !important;
+  }
+  .text-uppercase-xs {
+    text-transform: uppercase !important;
+  }
+  .text-capitalize-xs {
+    text-transform: capitalize !important;
+  }
+  .text-normal-xs {
+    font-weight: normal !important;
+  }
+}

@@ -1,0 +1,46 @@
+@include media-breakpoint-down(md) {
+  body {
+    min-width: 360px;
+  }
+  .header {
+    background: var(--white);
+    padding: 15px;
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 2;
+  }
+  .body {
+    padding: 65px 0 58px 0;
+    .login & {
+      padding: 0;
+    }
+  }
+  .aside {
+    height: 100%;
+    background: var(--white);
+    transition: transform var(--primary-transition);
+    transform: translateX(-100%);
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: 15px 15px 0 15px;
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    flex: 0 0 100%;
+    &.open {
+      transform: translateX(0);
+    }
+  }
+  .content {
+    width: 100%;
+    padding: 15px 15px 0 15px;
+  }
+  .footer {
+    background: var(--white);
+    border-top: 1px solid var(--border-color);
+    padding: 10px;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 2;
+  }
+}

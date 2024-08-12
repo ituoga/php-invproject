@@ -1,0 +1,40 @@
+.cat {
+  &-list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    &__links {
+      color: var(--text-color);
+      font: bold 16px/1.2 var(--primary-font);
+      text-decoration: none;
+      transition: all var(--primary-transition);
+      border: 1px solid var(--pattens-blue);
+      border-radius: var(--primary-radius);
+      padding: 10px 20px;
+      position: relative;
+      align-items: center;
+      display: flex;
+      &:hover {
+        border-color: var(--persian-green);
+      }
+      &.active {
+        background: var(--persian-green);
+        border-color: var(--persian-green);
+        &:before {
+          width: 14px;
+          margin: 0 12px 0 -4px;
+        }
+      }
+      &:before {
+        width: 0;
+        color: var(--text-color);
+        font: bold 14px/1 icomoon;
+        transition: all var(--primary-transition);
+        content: "\e907";
+        overflow: hidden;
+        display: inline-flex;
+        flex: 0 0 auto;
+      }
+    }
+  }
+}

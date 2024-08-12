@@ -1,0 +1,81 @@
+.modal {
+  opacity: 0;
+  text-align: center;
+  visibility: hidden;
+  transition: all var(--primary-transition);
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__bg {
+    font-size: 0;
+    background: rgba(0, 0, 0, .25);
+    padding: 15px;
+    overflow: auto;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    &:before {
+      height: 100%;
+      content: "";
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+  &__hold {
+    vertical-align: middle;
+    display: inline-block;
+  }
+  &__wrap {
+    width: 100%;
+    text-align: left;
+    background: var(--white);
+    box-shadow: -7px 33px 13px rgba(0, 0, 0, 0.01), -4px 18px 11px rgba(0, 0, 0, 0.05), -2px 8px 8px rgba(0, 0, 0, 0.09), 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--mercury);
+    border-radius: 12px;
+    padding: 40px clamp(20px, 5vw, 40px) clamp(30px, 5vw, 40px) clamp(20px, 5vw, 40px);
+    margin: 0 auto;
+    isolation: isolate;
+    position: relative;
+    @include last-child;
+    &--info {
+      max-width: 360px;
+    }
+    p,
+    ul,
+    ol {
+      font-size: 14px;
+      padding-bottom: 10px;
+    }
+  }
+  &__close {
+    color: var(--text-color);
+    font-size: 32px;
+    text-decoration: none;
+    transition: all var(--primary-transition);
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    &:after {
+      content: "";
+      position: absolute;
+      inset: -5px;
+    }
+    [class^=icon-] {
+      transition: transform var(--primary-transition);
+      display: inline-block;
+    }
+    &:hover {
+      color: var(--deco-color);
+      [class^=icon-] {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

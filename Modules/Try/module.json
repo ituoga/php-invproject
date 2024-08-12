@@ -1,0 +1,11 @@
+{
+    "name": "Try",
+    "alias": "try",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Try\\Providers\\TryServiceProvider"
+    ],
+    "files": []
+}

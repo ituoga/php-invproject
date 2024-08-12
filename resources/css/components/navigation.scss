@@ -1,0 +1,108 @@
+.nav {
+  &-user {
+    margin-left: auto;
+    &__list {
+      align-items: center;
+      display: inline-flex;
+      gap: 0 40px;
+      @include media-breakpoint-down(md) {
+        gap: 0 15px;
+      }
+    }
+    &__items {
+      display: inline-flex;
+    }
+    &__links {
+      color: var(--text-color);
+      font: bold 16px/1.2 var(--primary-font);
+      text-decoration: none;
+      transition: color var(--primary-transition);
+      align-items: center;
+      display: inline-flex;
+      gap: 0 15px;
+      &:hover {
+        color: var(--deco-color);
+      }
+      [class^="icon-"] {
+        font-size: 34px;
+        @include media-breakpoint-down(md) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  &-main {
+    margin: 0 0 20px 0;
+    &__list {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 10px 0;
+    }
+    &__links {
+      color: var(--secondary-text-color);
+      font: bold 16px/1.2 var(--primary-font);
+      text-decoration: none;
+      transition: all var(--primary-transition);
+      border-radius: var(--primary-radius);
+      padding: 9px 24px;
+      align-items: center;
+      display: flex;
+      gap: 0 10px;
+      &.active,
+      &:hover {
+        color: var(--white);
+        background: var(--deco-color);
+      }
+      &--spec {
+        color: var(--secondary-deco-color);
+        &.active,
+        &:hover {
+          color: var(--white);
+          background: var(--secondary-deco-color);
+        }
+      }
+      [class^="icon-"] {
+        font-size: 26px;
+      }
+    }
+  }
+  &-bottom {
+    &__list {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      gap: 10px;
+    }
+    &__items {
+      justify-content: center;
+      display: inline-flex;
+      flex: 1 1 0;
+    }
+    &__links {
+      color: var(--secondary-text-color);
+      font: 10px/1.2 var(--primary-font);
+      text-align: center;
+      text-decoration: none;
+      transition: color var(--primary-transition);
+      align-items: center;
+      justify-content: center;
+      display: inline-flex;
+      flex-flow: column nowrap;
+      gap: 5px;
+      &.active,
+      &:hover {
+        color: var(--deco-color);
+      }
+      &--spec {
+        color: var(--secondary-deco-color);
+        &.active,
+        &:hover {
+          color: var(--secondary-deco-color);
+        }
+      }
+      [class^="icon-"] {
+        font-size: 20px;
+      }
+    }
+  }
+}

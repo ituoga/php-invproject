@@ -1,0 +1,75 @@
+/*
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/
+
+/* imports top */
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "abstract/config.scss";
+@import "bootstrap/bootstrap-grid.scss";
+@import "abstract/normalize.css";
+@import "abstract/reset.css";
+@import "typography/typography.scss";
+@import "typography/icomoon.css";
+@import "plugins/jquery-ui.css";
+@import "plugins/select2.min.css";
+@import "plugins/swiper-bundle.min.css";
+@import "plugins/plugins.scss";
+@import "components/site.scss";
+@import "components/navigation.scss";
+@import "components/days.scss";
+@import "components/categories.scss";
+@import "components/availability.scss";
+@import "components/form.scss";
+@import "components/modal.scss";
+@import "components/login.scss";
+body,
+html {
+  height: 100%;
+}
+body {
+  color: var(--text-color);
+  font: 16px/1.3 var(--primary-font);
+  &.login {
+    background: var(--pattens-blue);
+  }
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+.wrapper {
+  max-width: 1920px;
+  min-height: 100%;
+  margin: 0 auto;
+  flex-flow: column nowrap;
+  display: flex;
+}
+.header {
+  padding: 15px 25px;
+  border-bottom: 1px solid var(--border-color);
+  align-items: center;
+  display: flex;
+}
+.body {
+  display: flex;
+  flex: 1 0 auto;
+}
+.aside {
+  padding: 25px 25px 5px 25px;
+  align-self: flex-start;
+  flex: 0 0 326px;
+}
+.content {
+  width: calc(100% - 326px);
+  border-left: 1px solid var(--border-color);
+  padding: 25px 25px 5px 25px;
+  isolation: isolate;
+}
+a {
+  text-decoration: none;
+}
+/* imports bottom */
+@import "tablet";
+@import "mobile";
+@import "abstract/helpers";

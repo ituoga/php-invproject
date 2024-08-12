@@ -1,0 +1,120 @@
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('/fonts/icomoon.ttf?gx9bo9') format('truetype'),
+    url('/fonts/icomoon.woff?gx9bo9') format('woff'),
+    url('/fonts/icomoon.svg?gx9bo9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-eye:before {
+  content: "\e91e";
+}
+.icon-facebook:before {
+  content: "\e91c";
+}
+.icon-google:before {
+  content: "\e91d";
+}
+.icon-archive:before {
+  content: "\e900";
+}
+.icon-arrow-left:before {
+  content: "\e901";
+}
+.icon-arrow-right:before {
+  content: "\e902";
+}
+.icon-building:before {
+  content: "\e903";
+}
+.icon-calendar:before {
+  content: "\e904";
+}
+.icon-calendar-plus:before {
+  content: "\e905";
+}
+.icon-chart:before {
+  content: "\e906";
+}
+.icon-check:before {
+  content: "\e907";
+}
+.icon-clipboard:before {
+  content: "\e908";
+}
+.icon-clock:before {
+  content: "\e909";
+}
+.icon-close:before {
+  content: "\e90a";
+}
+.icon-currency-euro:before {
+  content: "\e90b";
+}
+.icon-dot:before {
+  content: "\e90c";
+}
+.icon-edit:before {
+  content: "\e90d";
+}
+.icon-file-text:before {
+  content: "\e90e";
+}
+.icon-filter:before {
+  content: "\e90f";
+}
+.icon-home:before {
+  content: "\e910";
+}
+.icon-list:before {
+  content: "\e911";
+}
+.icon-logout:before {
+  content: "\e912";
+}
+.icon-menu:before {
+  content: "\e913";
+}
+.icon-person-plus:before {
+  content: "\e914";
+}
+.icon-plus:before {
+  content: "\e915";
+}
+.icon-plus-square:before {
+  content: "\e916";
+}
+.icon-search:before {
+  content: "\e917";
+}
+.icon-tag:before {
+  content: "\e918";
+}
+.icon-telephone:before {
+  content: "\e919";
+}
+.icon-trash:before {
+  content: "\e91a";
+}
+.icon-user:before {
+  content: "\e91b";
+}
