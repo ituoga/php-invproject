@@ -2,8 +2,17 @@ name: Laravel
 
 on:
   release:
-    types: [created]
+    types: [published]
+
   push:
+    branches:
+      - main
+    tags:
+      - '*'
+
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   laravel-tests:
@@ -74,19 +83,36 @@ jobs:
         
   docker_publish:
     name: Docker Publish
+    if: github.event_name == 'release' || github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')
     runs-on: "ubuntu-latest"
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))
     needs: [laravel-tests, phpstan]
     
     steps:
       - uses: actions/checkout@v4
 
-      # https://github.com/marketplace/actions/push-to-ghcr
-      - name: Build and publish a Docker image for ${{ github.repository }}
-        uses: macbre/push-to-ghcr@master
+      - name: Set Docker Image Tags
+        id: docker_meta
+        run: |
+          VERSION=$(echo "${GITHUB_REF##*/}")
+          if [ "${GITHUB_REF}" == "refs/heads/main" ]; then
+            echo "LATEST_TAG=latest" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            echo "VERSION_TAG=$VERSION" >> $GITHUB_ENV
+            echo "LATEST_TAG=latest" >> $GITHUB_ENV
+          elif [ "${GITHUB_EVENT_NAME}" == "release" ]; then
+            VERSION=${GITHUB_REF##*/}
+            echo "VERSION_TAG=$VERSION" >> $GITHUB_ENV
+            echo "LATEST_TAG=latest" >> $GITHUB_ENV
+          fi
+
+      - name: Build and publish Docker image
+        uses: docker/build-push-action@v4
         with:
-          image_name: ${{ github.repository }}  # it will be lowercased internally
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           context: .
-          dockerfile: .docker/prod/Dockerfile
-    
+          file: .docker/prod/Dockerfile
+          push: true
+          tags: |
+            ${{ github.repository }}:${{ env.VERSION_TAG }}
+            ${{ github.repository }}:${{ env.LATEST_TAG }}
+
+     
