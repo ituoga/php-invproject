@@ -93,13 +93,12 @@ jobs:
       - name: Set Docker Image Tags
         id: docker_meta
         run: |
-          VERSION=$(echo "${GITHUB_REF##*/}")
-          if [ "${GITHUB_REF}" == "refs/heads/main" ]; then
-            echo "LATEST_TAG=latest" >> $GITHUB_ENV
+          if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
+            echo "VERSION_TAG=latest" >> $GITHUB_ENV
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            VERSION=$(echo "${GITHUB_REF}" | sed 's/refs\/tags\///')
             echo "VERSION_TAG=$VERSION" >> $GITHUB_ENV
-            echo "LATEST_TAG=latest" >> $GITHUB_ENV
-          elif [ "${GITHUB_EVENT_NAME}" == "release" ]; then
+          elif [[ "${GITHUB_EVENT_NAME}" == "release" ]]; then
             VERSION=${GITHUB_REF##*/}
             echo "VERSION_TAG=$VERSION" >> $GITHUB_ENV
             echo "LATEST_TAG=latest" >> $GITHUB_ENV
@@ -113,6 +112,6 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ github.repository }}:${{ env.VERSION_TAG }}
-            ghcr.io/${{ github.repository }}:${{ env.LATEST_TAG }}
+            ghcr.io/${{ github.repository }}:latest
 
      
