@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Config;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CrudController;
 use App\Services\BaseServiceInterface;
 use Illuminate\Http\Request;
 
-class BaseController extends Controller
+class BaseController extends CrudController
 {
     protected string $module = "configs";
 

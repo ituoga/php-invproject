@@ -6,9 +6,10 @@ use App\Http\Requests\StoreContrahentRequest;
 use App\Http\Requests\UpdateContrahentRequest;
 use App\Models\Contrahent;
 use App\Services\BaseServiceInterface;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
-class ContrahentController extends Controller
+class ContrahentController extends CrudController
 {
 
     protected string $module = "contrahents";
@@ -19,7 +20,7 @@ class ContrahentController extends Controller
         $this->setService($service);
     }
 
-    public function store($_data = null)
+    public function store(Request $request): RedirectResponse
     {
         $request = app(StoreContrahentRequest::class);
         $data = $request->validated();
@@ -27,7 +28,7 @@ class ContrahentController extends Controller
         return redirect()->route('contrahents.index');
     }
 
-    public function update($id = null, $_data = null)
+    public function update($id = null, Request $_data): RedirectResponse
     {
         $request = app(UpdateContrahentRequest::class);
         $data = $request->validated();

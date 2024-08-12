@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Invoice;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CrudController;
 use App\Services\BaseServiceInterface;
 
-class BaseController extends Controller
+class BaseController extends CrudController
 {
     protected string $module = "invoices";
 

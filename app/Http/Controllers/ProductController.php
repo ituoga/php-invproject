@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Services\BaseServiceInterface;
 use Illuminate\Contracts\Cache\Store;
 
-class ProductController extends Controller
+class ProductController extends CrudController
 {
     protected string $module = "products";
 
