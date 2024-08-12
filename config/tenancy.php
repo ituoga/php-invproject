@@ -53,14 +53,15 @@ return [
          * Tenant database names are created like this:
          * prefix + tenant_id + suffix.
          */
-        'prefix' => 'tenant',
-        'suffix' => '',
+        'prefix' => 'tenant_',
+        'suffix' => '.sqlite',
 
         /**
          * TenantDatabaseManagers are classes that handle the creation & deletion of tenant databases.
          */
         'managers' => [
-            'sqlite' => Stancl\Tenancy\TenantDatabaseManagers\SQLiteDatabaseManager::class,
+            // 'sqlite' => Stancl\Tenancy\TenantDatabaseManagers\SQLiteDatabaseManager::class,
+            'sqlite' => App\Overrides\SQLiteDatabaseManager::class,
             // 'mysql' => Stancl\Tenancy\TenantDatabaseManagers\MySQLDatabaseManager::class,
             // 'pgsql' => Stancl\Tenancy\TenantDatabaseManagers\PostgreSQLDatabaseManager::class,
 
