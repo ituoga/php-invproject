@@ -53,6 +53,8 @@ RUN rm -rf /tmp/* \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
+RUN docker-php-ext-configure bcmath --enable-bcmath
+
 # disable default site and delete all default files inside APP_HOME
 RUN a2dissite 000-default.conf
 RUN rm -r $APP_HOME
@@ -93,7 +95,7 @@ RUN npm run build
 USER root
 RUN docker-php-ext-install pcntl
 RUN docker-php-ext-configure pcntl --enable-pcntl
-RUN docker-php-ext-configure bcmath --enable-bcmath
+
 
 COPY .docker/prod/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
