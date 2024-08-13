@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - dev
     tags:
       - '*'
 
@@ -112,7 +113,9 @@ jobs:
         id: docker_meta
         run: |
           if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
-            echo "VERSION_TAG=main" >> $GITHUB_ENV
+            echo "VERSION_TAG=latest" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF}" == "refs/heads/dev" ]]; then
+            echo "VERSION_TAG=dev" >> $GITHUB_ENV
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
             VERSION=$(echo "${GITHUB_REF}" | sed 's/refs\/tags\///')
             echo "VERSION_TAG=$VERSION" >> $GITHUB_ENV
