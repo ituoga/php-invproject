@@ -145,8 +145,9 @@
                 <ul class="nav-user__list">
                     <li class="nav-user__items"><a href="{{ route("profile.edit") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">Profilis</span></a></li>
                     <li class="nav-user__items">
+                        <a href="{{ url("/logout") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">Atsijungti</span></a>
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                 if (confirm('Ar tikrai norite atsijungti?')) {
@@ -154,7 +155,7 @@
                 }" class="nav-user__links">
                                 <i class="icon-logout" aria-hidden="true"></i><span class="hidden-xs">Atsijungti</span>
                             </a>
-                        </form>
+                        </form> --}}
                     </li>
                 </ul>
             </nav>

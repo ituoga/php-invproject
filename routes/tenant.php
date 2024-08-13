@@ -30,7 +30,7 @@ Route::middleware([
         return UserImpersonation::makeResponse($token);
     })->name('impersonate');
 
-    Route::middleware(["auth:tenant"])->group(function () {
+    Route::middleware(["auth"])->group(function () {
 
 
         Route::get('/', function () {
