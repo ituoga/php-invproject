@@ -13,7 +13,7 @@ class TenantUserCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'tenant:create-user {--tenants=} {--email} {--password}';
+    protected $signature = 'tenant:create-user {--tenants=} {--email=} {--password=}';
 
     /**
      * The console command description.

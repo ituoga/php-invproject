@@ -45,7 +45,11 @@ class RegisteredUserController extends Controller
         ]);
 
         $tenant = Tenant::create(["id" => $request->tenant, "email" => $request->email]);
-        $tenant->createDomain($request->tenant . "." . env("CENTRAL_DOMAIN"))->makePrimary();
+        $domain = $tenant->createDomain($request->tenant . "." . env("CENTRAL_DOMAIN"));
+        /**
+         * @var \App\Models\Domain $domain
+         */
+        $domain->makePrimary();
 
         Artisan::call('tenants:migrate', [
             '--tenants' => [$tenant->getTenantKey()],
@@ -55,19 +59,11 @@ class RegisteredUserController extends Controller
             "--email" => $request->email,
             "--password" => $request->password,
         ]);
-        // Artisan::call('tenants:run', [
-        //     '--tenants' => [$tenant->getTenantKey()],
-        //     "tenant:create-user" => [
-        //     "--email" => $request->email,
-        //     "--password" => $request->password,
-        //     ],
-        // ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect($tenant->impersonationUrl(1));
-        return redirect(route('dashboard', absolute: false));
     }
 }
