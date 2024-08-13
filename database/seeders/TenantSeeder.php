@@ -20,8 +20,8 @@ class TenantSeeder extends Seeder
         // ]);
         User::create([
             "name" => "Tenant user",
-            // "email" => "test@example.com",
-            // "password" => bcrypt("pzkz"),
+            "email" => "test@example.com",
+            "password" => bcrypt("pzkz"),
         ]);
     }
 }

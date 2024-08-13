@@ -20,10 +20,11 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            "password" => bcrypt("password"),
         ]);
 
-        $tenant = Tenant::create(['email' => "test@example.com", 'id'=>"one"]);
-        $domain = $tenant->createDomain('one.saas.test');
+        $tenant = Tenant::create(['email' => "test@example.com", 'id'=>"two"]);
+        $domain = $tenant->createDomain('two.saas.test');
         $domain->makePrimary();
 
     }

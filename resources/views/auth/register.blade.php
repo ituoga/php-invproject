@@ -2,6 +2,16 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <!-- Tenant -->
+        <div>
+            <x-input-label for="tenant" :value="__('Subdomain')" />
+            <div class="relative z-0 flex">
+            <x-text-input id="tenant" class="block w-full rounded-md rounded-r-none border-gray-300 shadow-sm focus:z-10 focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500" type="text" name="tenant" :value="old('tenant')" required autofocus autocomplete="name"  placeholder="my-company-name" />
+            <div class="inset-y-0 left-0 flex items-center rounded-md rounded-l-none border border-l-0 border-gray-300 bg-gray-100 px-2.5 text-gray-700">.p6.lt</div>
+            </div>
+            <x-input-error :messages="$errors->get('tenant')" class="mt-2" />
+        </div>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />

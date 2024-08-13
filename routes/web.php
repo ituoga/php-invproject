@@ -23,16 +23,20 @@ foreach (config('tenancy.central_domains') as $domain) {
       return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::get("/login", function () {
-      $a = Tenant::where("email", request()->email)->firstOrFail();
-      // dd(Tenant::all(), $a);
-      // dd($a);
-      return redirect()->to($a->impersonationUrl(1));
-  })->name("login");
+  //   Route::get("/login", function () {
+  //     $a = Tenant::where("email", request()->email)->firstOrFail();
+  //     // dd(Tenant::all(), $a);
+  //     // dd($a);
+  //     return redirect()->to($a->impersonationUrl(1));
+  // })->name("login");
 
     Route::middleware('auth')->group(function () {
     });
+
+
+    require __DIR__ . '/auth.php';
   });
+  
 }
 
 // Route::middleware([
@@ -90,5 +94,3 @@ Route::get("/manifest.json", function () {
     'Access-Control-Max-Age' => '86400'
   ]);
 });
-
-require __DIR__ . '/auth.php';
