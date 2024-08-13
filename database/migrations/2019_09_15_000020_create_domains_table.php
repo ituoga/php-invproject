@@ -20,6 +20,9 @@ class CreateDomainsTable extends Migration
             $table->string('domain', 255)->unique();
             $table->string('tenant_id');
 
+            $table->unsignedTinyInteger('is_primary')->default(false);
+            $table->unsignedTinyInteger('is_fallback')->default(false);
+
             $table->timestamps();
             $table->foreign('tenant_id')->references('id')->on('tenants')->onUpdate('cascade')->onDelete('cascade');
         });

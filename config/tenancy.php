@@ -17,11 +17,6 @@ return [
      * Only relevant if you're using the domain or subdomain identification middleware.
      */
     'central_domains' => [
-        "p6.lt",
-        "saas.test",
-        "www.saas.test",
-        '127.0.0.1',
-        'localhost',
         env("CENTRAL_DOMAIN"),
     ],
 
