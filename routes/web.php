@@ -21,6 +21,7 @@ foreach (config('tenancy.central_domains') as $domain) {
 
     Route::get('/dashboard', function () {
       $tenant = Tenant::where("email", auth()->user()?->email)->firstOrFail();
+      return redirect($tenant->impersonationUrl(1));
       return view('dashboard');
     })->middleware(['auth' /*,'verified'*/])->name('dashboard');
 
