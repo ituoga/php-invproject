@@ -22,34 +22,6 @@ class Domain extends BaseDomain
         'is_fallback' => 'bool',
     ];
 
-    public static function booted()
-    {
-        static::saving(function (self $model) {
-            if (in_array($model->domain, config('saas.reserved_subdomains'))) {
-                throw new Exception($model->domain);
-            }
-        });
-
-        static::updating(function (self $model) {
-            if ($model->getAttribute('domain') !== $model->getOriginal('domain')) {
-                throw new Exception('Domain cannot be changed');
-            }
-        });
-
-        static::saved(function (self $model) {
-            // There can only be one of these
-            $uniqueKeys = ['is_primary', 'is_fallback'];
-
-            foreach ($uniqueKeys as $key) {
-                if ($model->$key) {
-                    $model->tenant->domains()
-                        ->where('id', '!=', $model->id)
-                        ->update([$key => false]);
-                }
-            }
-        });
-    }
-
     public static function domainFromSubdomain(string $subdomain): string
     {
         return $subdomain.'.'.config('tenancy.central_domains')[0];
