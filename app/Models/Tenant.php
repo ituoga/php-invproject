@@ -33,7 +33,7 @@ class Tenant extends BaseTenant implements TenantWithDatabase
          */
         $tenancy = tenancy();
         // @phpstan-ignore-next-line
-        $token = $tenancy->impersonate($this, $user_id, $this->route('dashboard'), 'web')->token;
+        $token = $tenancy->impersonate($this, $user_id, $this->route('dashboard'), 'tenant')->token;
 
         return $this->route('impersonate', ['token' => $token]);
     }
