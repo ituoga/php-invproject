@@ -20,6 +20,8 @@ class CreateTenantsTable extends Migration
 
             // your custom columns may go here
 
+            $table->string('email')->unique();
+
             $table->timestamps();
             $table->json('data')->nullable();
         });

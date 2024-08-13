@@ -15,6 +15,7 @@ class TenantSeeder extends Seeder
     {
         TenantUser::create([
             "name" => "Tenant user",
+            // "email" => "test@example.com",
         ]);
     }
 }

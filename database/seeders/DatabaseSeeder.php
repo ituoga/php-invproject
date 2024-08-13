@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        Tenant::create()->createDomain('one.saas.test');
+        $tenant = Tenant::create(['email' => "test@example.com", 'id'=>"one"]);
+        $domain = $tenant->createDomain('one.saas.test');
+        $domain->makePrimary();
 
     }
 }

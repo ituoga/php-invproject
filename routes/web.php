@@ -24,15 +24,13 @@ foreach (config('tenancy.central_domains') as $domain) {
     })->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::get("/login", function () {
-      // $a = Auth::guard("web")->loginUsingId(1);
-      $a = Tenant::first();
-      // dd($a->impersonationUrl(1));
+      $a = Tenant::where("email", request()->email)->firstOrFail();
+      // dd(Tenant::all(), $a);
+      // dd($a);
       return redirect()->to($a->impersonationUrl(1));
   })->name("login");
 
     Route::middleware('auth')->group(function () {
-
-      
     });
   });
 }

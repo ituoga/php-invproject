@@ -15,7 +15,13 @@ class Tenant extends BaseTenant implements TenantWithDatabase
  
     use HasDatabase, HasDomains;
 
-
+    public static function getCustomColumns(): array
+    {
+        return [
+            'id',
+            'email',
+        ];
+    }
     public function primary_domain()
     {
         return $this->hasOne(Domain::class)->where('is_primary', true);
@@ -54,4 +60,6 @@ class Tenant extends BaseTenant implements TenantWithDatabase
 
         return tenant_route($domain, $route, $parameters, $absolute);
     }
+
+    
 }
