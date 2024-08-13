@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - dev
     tags:
       - '*'
 
@@ -113,6 +114,8 @@ jobs:
         run: |
           if [[ "${GITHUB_REF}" == "refs/heads/main" ]]; then
             echo "VERSION_TAG=latest" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF}" == "refs/heads/devel" ]]; then
+            echo "VERSION_TAG=dev" >> $GITHUB_ENV
           elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
             VERSION=$(echo "${GITHUB_REF}" | sed 's/refs\/tags\///')
             echo "VERSION_TAG=$VERSION" >> $GITHUB_ENV
