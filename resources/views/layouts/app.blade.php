@@ -73,59 +73,8 @@
     </style>
 
 
-
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/slate.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/stone.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/gray.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/neutral.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/red.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/rose.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/orange.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/green.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/blue.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/yellow.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/violet.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/franken-wc@0.0.6/dist/css/zinc.min.css"
-/>
-
-
-
-    
+@stack('styles')
+  
 </head>
 
 <body>
