@@ -9,7 +9,10 @@ chmod -R 777 /var/www/html/storage
 rm -rf /var/www/html/storage/framework/views/*
 
 php artisan storage:link
-php artisan migrate --force -q
+
+php artisan migrate --force
+php artisan tenants:migrate --force
+
 echo "${REVERB_HOST}"
 
 for f in $(ls /var/www/html/public/build/assets/*.js); do
