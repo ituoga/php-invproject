@@ -45,7 +45,7 @@ abstract class BaseService implements BaseServiceInterface
         return redirect()->to($this->redirectStore);
     }
 
-    public function read($id): Factory|View
+    public function read($id): mixed
     {
         $item = $this->repository->read($id);
         return $this->view->view(['item' => $item]);

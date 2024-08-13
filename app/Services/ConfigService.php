@@ -27,9 +27,11 @@ class ConfigService extends BaseService implements BaseServiceInterface
      * @param mixed $id
      * @return Factory|View
      */
-    public function read($id = null): Factory|View
+    public function read($id = null): mixed
     {
-        return $this->repository->read($id);
+        $data =  $this->repository->read($id);
+        return $data;
+        // return $this->view->view(['item'=>$data]);
     }
 
     /**
