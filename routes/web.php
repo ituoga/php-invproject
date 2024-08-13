@@ -20,8 +20,9 @@ foreach (config('tenancy.central_domains') as $domain) {
     });
 
     Route::get('/dashboard', function () {
+      $tenant = Tenant::where("email", auth()->user()?->email)->firstOrFail();
       return view('dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    })->middleware(['auth' /*,'verified'*/])->name('dashboard');
 
   //   Route::get("/login", function () {
   //     $a = Tenant::where("email", request()->email)->firstOrFail();
