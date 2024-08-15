@@ -6,7 +6,7 @@ use App\Repositories\BaseRepositoryInterface;
 use App\Views\BaseViewInterface;
 use \Illuminate\Contracts\View\Factory;
 use \Illuminate\Contracts\View\View;
-
+use Illuminate\Http\RedirectResponse;
 
 /**
  * Class InvoicesService.
@@ -32,4 +32,12 @@ class InvoicesService extends BaseService implements BaseServiceInterface
             'config' => $config,
         ]);
     }
+
+    public function store($data): RedirectResponse
+    {
+        $this->repository->create($data);
+        app(ConfigService::class)->incrementDebitInvoiceNumber();
+        return redirect()->to($this->redirectStore);
+    }
+
 }

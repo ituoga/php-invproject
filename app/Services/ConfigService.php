@@ -49,4 +49,13 @@ class ConfigService extends BaseService implements BaseServiceInterface
         $this->repository->create($data);
         return redirect()->to("/");
     }
+
+    public function incrementDebitInvoiceNumber()
+    {
+        $model = app(ConfigService::class)->read();
+        //@phpstan-ignore-next-line
+        $data['invoice_number_deb'] = $model->invoice_number_deb + 1;
+        $this->create($data);        
+    }
 }
+

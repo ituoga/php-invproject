@@ -5,6 +5,17 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * 
+ * @property mixed $name
+ * @property mixed $code
+ * @property mixed $email
+ * @property mixed $vat
+ * @property mixed $phone
+ * @property mixed $address
+ * @property mixed $country
+ * 
+ */
 class ContrahentsSearch extends JsonResource
 {
     /**
