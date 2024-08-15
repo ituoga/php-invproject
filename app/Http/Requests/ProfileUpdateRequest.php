@@ -16,8 +16,16 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()?->id)],
+            "seller_idv" => ["required", Rule::in(["taip", "ne"])],
+            "seller_name" => "required",
+            'seller_code' => "required",
+            "seller_vat" => "nullable",
+            "seller_phone" => "nullable",
+            "seller_email" => "nullable",
+            "seller_address" => "nullable",
+            "seller_country" => "nullable",
+            "seller_bank" => "required",
+    
         ];
     }
 }

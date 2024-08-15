@@ -39,11 +39,12 @@ class ConfigService extends BaseService implements BaseServiceInterface
      * @param mixed $data
      * @return RedirectResponse
      */
-    public function store($data = []): RedirectResponse
+    public function create($data = []): RedirectResponse
     {
         $model = $this->repository->read(null);
         if (!empty($model)) {
-            return $model->update($data);
+            $model->update($data);
+            return redirect()->to("/");
         }
         $this->repository->create($data);
         return redirect()->to("/");

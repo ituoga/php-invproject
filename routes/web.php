@@ -20,9 +20,13 @@ foreach (config('tenancy.central_domains') as $domain) {
     });
 
     Route::get('/dashboard', function () {
-      $tenant = Tenant::where("email", auth()->user()?->email)->firstOrFail();
+      /**
+       * @var \Illuminate\Contracts\Auth\StatefulGuard
+       */
+      $auth = auth();
+      $tenant = Tenant::where("email", $auth->user()?->email)->firstOrFail();
       return redirect($tenant->impersonationUrl(1));
-      return view('dashboard');
+      // return view('dashboard');
     })->middleware(['auth' /*,'verified'*/])->name('dashboard');
 
   //   Route::get("/login", function () {

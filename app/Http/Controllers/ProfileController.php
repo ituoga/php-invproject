@@ -14,6 +14,10 @@ class ProfileController extends CrudController
 {
     protected string $module = 'profile';
 
+    protected ?string $storeRequest = ProfileUpdateRequest::class;
+
+    protected ?string $updateRequest = ProfileUpdateRequest::class;
+
     public function __construct(
         BaseServiceInterface $service,
     ){

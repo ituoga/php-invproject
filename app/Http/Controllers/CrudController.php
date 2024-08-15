@@ -55,13 +55,13 @@ abstract class CrudController
         return $this->service->edit($id);
     }
 
-    public function update(mixed $id = null, Request $request)
+    public function update(Request $request, mixed $id = null)
     {
         if ($this->updateRequest) {
             $request = app($this->updateRequest);
             return $this->service->update($id, $request->validated());
         }
-        return $this->service->update($id, $request);
+        return $this->service->update($id, $request->all());
     }
 
     public function destroy(Request $request): RedirectResponse

@@ -19,6 +19,9 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     @vite('resources/js/app.js')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+
     
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -155,6 +158,12 @@
             </aside>
 
             <section class="content container-fluid">
+
+                @if(session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
 
                 @if(session('success'))
                     <div class="alert alert-success">

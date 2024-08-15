@@ -34,7 +34,7 @@ abstract class BaseService implements BaseServiceInterface
         return $this->view->list(['items' => $items]);
     }
 
-    public function create($data=[]): Factory|View
+    public function create($data=[]): mixed
     {
         return $this->view->create([]);
     }

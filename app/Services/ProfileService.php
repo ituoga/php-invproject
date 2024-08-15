@@ -32,14 +32,18 @@ class ProfileService extends BaseService implements BaseServiceInterface
 
     public function update($id, $data): RedirectResponse 
     {
+        
+        $service = app(ConfigService::class);
         $request = app(ProfileUpdateRequest::class);
-        $request->user()->fill($request->validated());
+        
+        $service->store($request->validated());
+        // $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+        // if ($request->user()->isDirty('email')) {
+        //     $request->user()->email_verified_at = null;
+        // }
 
-        $request->user()->save();
+        // $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
