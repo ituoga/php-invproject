@@ -9,6 +9,7 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\ContrahentController;
 use App\Http\Controllers\Invoice;
 use App\Http\Controllers\Config;
+use App\Http\Controllers\Invoice\AutoCompleteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\ValidateProfile;
@@ -75,9 +76,12 @@ Route::middleware([
 
 
 
+            Route::get("/contrahents/search", AutoCompleteController::class)->name("contrahents.search");
             Route::resource('contrahents', ContrahentController::class);
 
             Route::resource("products", ProductController::class);
+
+            
 
         }); // end ValidateProfile
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

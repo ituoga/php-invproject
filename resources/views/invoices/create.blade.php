@@ -40,7 +40,7 @@
             </div>
             <div class="col-12 col-sm-6 col-xl-3 m-b-20">
                 <label for="id-697453" class="form-regular__label">{{ __('Serija') }}</label>
-                <input type="text" name="invoice_series" placeholder="SRS" id="id-458066" value="SFS">
+                <input type="text" name="invoice_series" placeholder="SRS" id="id-458066" value="{{ $config?->invoice_series_deb }}">
                 {{-- <select name="select" class="js-select" id="id-697453" style="width: 100%;"> --}}
                 {{-- <option>--</option> --}}
                 {{-- </select> --}}

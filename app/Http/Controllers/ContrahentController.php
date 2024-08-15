@@ -32,7 +32,7 @@ class ContrahentController extends CrudController
     {
         $request = app(UpdateContrahentRequest::class);
         $data = $request->validated();
-        $this->service->update($data, $id);
+        $this->service->update($id,$data);
         return redirect()->route('contrahents.index');
     }
 }

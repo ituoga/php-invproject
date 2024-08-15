@@ -67,9 +67,10 @@ abstract class BaseService implements BaseServiceInterface
                 $data = $request->all();
             }
         }
-        $item = $this->repository->read($id);
-        $item->fill($data);
-        $item->update();
+        // $item = $this->repository->read($id);
+        // $item->fill($data);
+        // $item->update();
+        $this->repository->update($id, $data);
 
         return redirect()->to($this->redirectUpdate);
     }

@@ -3,8 +3,6 @@
 
   @include("components.search_buttons", ["createNew" => route("invoices.create"), "filter" => ""])
 
-  <h2>Darbų statuso apžvalga</h2>
-
   <table>
     <tr>
       <th>Dokumento Data</th>

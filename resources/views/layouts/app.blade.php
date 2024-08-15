@@ -138,17 +138,17 @@
                         <li class="nav-main__items">
                             <a href="{{ route('invoices.index') }}"
                                 class="nav-main__links {{ request()->is('invoices*') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-home" aria-hidden="true"></i>Saskaitos</a>
+                                    class="icon-list" aria-hidden="true"></i>Saskaitos</a>
                         </li>
                         <li class="nav-main__items">
                             <a href="{{ route('contrahents.index') }}"
                                 class="nav-main__links {{ request()->is('contrahents*') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-home" aria-hidden="true"></i>Kontrahentai</a>
+                                    class="icon-person-plus" aria-hidden="true"></i>Kontrahentai</a>
                         </li>
                         <li class="nav-main__items">
                             <a href="{{ route('products.index') }}"
                                 class="nav-main__links {{ request()->is('products*') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-home" aria-hidden="true"></i>Produktai</a>
+                                    class="icon-calendar" aria-hidden="true"></i>Produktai</a>
                         </li>
 
 
@@ -215,69 +215,19 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    {{-- <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script> --}}
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
 
 
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+
 
     <script src="{{ url('8ylt-css/js/locale/datepicker-lt.js') }}"></script>
 
 
 
 
-    <script>
-
-        $(document).ready(function () {
-
-            $('#id-job').autocomplete({
-                source: '/templates/search',
-                minLength: 2,
-                select: function (event, ui) {
-                    $("input[name=templateid]").val(ui.item.id);
-                    $("input[name=name]").val(ui.item.value);
-                    $("textarea[name=comment]").val(ui.item.comment);
-                    $("#id-039842").val(ui.item.duration);
-                    setTimeout(function () {
-                        $("input[name=price]").val(ui.item.price);
-
-                        $("input[name=templateid]").attr("readonly", true);
-                        $("input[name=name]").attr("readonly", true);
-                        $("textarea[name=comment]").attr("readonly", true);
-                        $("#id-039842").attr("readonly", true);
-                        $("input[name=price]").attr("readonly", true);
-                    }, 10);
-                }
-            });
-
-            $('#id-761741, #id-458066').autocomplete({
-                source: '/contrahents/search',
-                minLength: 2,
-                select: function (event, ui) {
-                    console.log(ui.item);
-                    $("input[name=clientid]").val(ui.item.id);
-                    setTimeout(function () {
-                        $("input[name=client_name]").val(ui.item.name);
-                        $("input[name=client_phone]").val(ui.item.phone);
-                    }, 20);
-                }
-            });
-
-            $('.atime').autocomplete({
-                source: '/completions/timetodecimal',
-                minLength: 2,
-            });
-        });
-
-/*
-        window.addEventListener("visibilitychange", function () {
-            console.log("Visibility changed");
-            if (document.visibilityState === "visible") {
-                console.log("APP resumed");
-                window.location.reload();
-            }
-        });
-        */
-    </script>
+    @include('layouts.scripts')
 
     {{-- <script src="https://unpkg.com/htmx.org@1.9.12"></script> --}}
 
