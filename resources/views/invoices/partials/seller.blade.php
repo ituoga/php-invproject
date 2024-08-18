@@ -1,7 +1,7 @@
 <div class="col-12 col-xl-6 m-b-20">
   <div class="site-card clearfix">
     <div class="site-card__header">
-      <h4>Pardavėjas</h4>
+      <h4>{{__("Pardavėjas")}}</h4>
     </div>
     <div class="site-card__body">
       <h5>{{ $config->seller_name }}</h5>
