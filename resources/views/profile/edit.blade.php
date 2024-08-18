@@ -10,8 +10,8 @@
             <dd>
                 {{-- <input type="text" name="seller_idv" value="" placeholder="{{ __('Vygdau individualią veiklą') }}"> --}}
                 <select name="seller_idv" class="js-select" style="width: 100%">
-                    <option value="ne" @if(old("seller_idv") == "ne") selected @endif >{{ __('Ne') }}</option>
-                    <option value="taip" @if(old("seller_idv") == "taip") selected @endif>{{ __('Taip') }}</option>
+                    <option value="no" @if(old("seller_idv") == "no") selected @endif >{{ __('Ne') }}</option>
+                    <option value="yes" @if(old("seller_idv") == "yes") selected @endif>{{ __('Taip') }}</option>
                 </select>
             </dd>
             <dt>{{ __('Pavadinimas ( vardas/pavarde arba imones pavadinimas)') }}:</dt>

@@ -16,7 +16,7 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "seller_idv" => ["required", Rule::in(["taip", "ne"])],
+            "seller_idv" => ["required", Rule::in(["yes", "no"])],
             "seller_name" => "required",
             'seller_code' => "required",
             "seller_vat" => "nullable",
@@ -25,7 +25,7 @@ class ProfileUpdateRequest extends FormRequest
             "seller_address" => "nullable",
             "seller_country" => "nullable",
             "seller_bank" => "required",
-    
+
         ];
     }
 }
