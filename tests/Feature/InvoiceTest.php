@@ -13,7 +13,7 @@ test('set invoice type to session and redirect to create', function () {
 
     @unlink(base_path("dbs/tenant_testing.sqlite"));
     $tenant = \App\Models\Tenant::create(['id'=>'testing','email'=>'test@test.test']);
-    $tenant->createDomain("testing.saas.test");
+    $tenant->createDomain("localhost");
     tenancy()->initialize($tenant);
 
     $config = \App\Models\Config::factory()->create();
