@@ -14,22 +14,12 @@
       <td data-th="Dokumento Data">{{ $item->document_date }}</td>
       <td data-th="Darbuotojas">{{ $item->contrahent_name }}</td>
       <td data-th="Veiksmai">
-        <div class="row">
-          <div class="col">
-            <a href="{{ route("invoices.read", $item) }}" class="btn btn--default">Peržiūrėti</a>
-          </div>
-          <div class="col">
 
-            <a href="{{ route("invoices.edit", $item) }}" class="btn btn--default">Redaguoti</a>
-          </div>
-          <div class="col">
-            <form action="{{ route("invoices.delete", $item) }}" method="POST">
-              @csrf
-              @method("DELETE")
-              <button type="submit" class="btn btn--default">Ištrinti</button>
-            </form>
-          </div>
-          </div>
+          @include("partials.actions", [
+            'item' => $item,
+            'editRoute' => "invoices.edit",
+
+          ])
         </td>
     </tr>
     @endforeach

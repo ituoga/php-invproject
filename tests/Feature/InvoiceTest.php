@@ -11,13 +11,16 @@ beforeEach(function() {
 test('set invoice type to session and redirect to create', function () {
     $user = User::factory()->create();
 
-    unlink(base_path("dbs/tenant_testing.sqlite"));
+    @unlink(base_path("dbs/tenant_testing.sqlite"));
     $tenant = \App\Models\Tenant::create(['id'=>'testing','email'=>'test@test.test']);
     $tenant->createDomain("testing.saas.test");
     tenancy()->initialize($tenant);
 
     $config = \App\Models\Config::factory()->create();
 
+    /**
+     * \Tests\TestCase $this
+     */
     $response = $this->actingAs($user)
             ->get('/invoices/create/'. InvoiceTypeEnum::Debit->value);
 
