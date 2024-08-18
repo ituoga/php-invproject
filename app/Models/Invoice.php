@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory;
-    
-    public $guarded = [];
+
+    public $guarded = ["id", "_token", "_method"];
 
     public function lines()
     {

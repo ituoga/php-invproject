@@ -40,8 +40,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-
-        Model::unguard();
+        
 
         $this->provide(
             ProductController::class,

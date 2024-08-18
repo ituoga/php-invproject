@@ -9,5 +9,5 @@ class Contrahent extends Model
 {
     use HasFactory;
 
-    public $guarded = [];
+    public $guarded = ["id", "_token", "_method"];
 }
