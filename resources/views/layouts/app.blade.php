@@ -138,7 +138,7 @@
                         <li class="nav-main__items">
                             <a href="{{ route('invoices.index') }}"
                                 class="nav-main__links {{ request()->is('invoices*') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-list" aria-hidden="true"></i>{{__("Klientai")}}</a>
+                                    class="icon-list" aria-hidden="true"></i>{{__("Sąskaitos")}}</a>
                         </li>
                         <li class="nav-main__items">
                             <a href="{{ route('contrahents.index') }}"
