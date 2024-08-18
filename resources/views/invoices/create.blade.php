@@ -129,10 +129,10 @@
 
         <div class="row justify-content-center">
             <div class="col-6 col-md-auto m-b-20">
-                <button type="submit" class="btn btn--secondary btn--block-xs">Išrašyti sąskaitą</button>
+                <button type="submit" class="btn btn--secondary btn--block-xs">{{__("Išrašyti sąskaitą")}}</button>
             </div>
             <div class="col-6 col-md-auto m-b-20">
-                <a href="{{ route('invoices.index') }}" class="btn btn--default btn--block-xs">Atšaukti</a>
+                <a href="{{ route('invoices.index') }}" class="btn btn--default btn--block-xs">{{__("Atšaukti")}}</a>
             </div>
         </div>
 
