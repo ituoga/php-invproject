@@ -1,4 +1,5 @@
 <x-guest-layout>
+    {!! RecaptchaV3::initJs() !!}
     <x-input-error :messages="$errors->get('g-recaptcha-response')" class="mb-4" />
 
     <form method="POST" action="{{ route('register') }}">
@@ -63,5 +64,5 @@
         </div>
     </form>
 
-    {!! RecaptchaV3::initJs() !!}
+
 </x-guest-layout>
