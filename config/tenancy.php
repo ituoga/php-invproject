@@ -18,6 +18,7 @@ return [
      */
     'central_domains' => [
         env("CENTRAL_DOMAIN"),
+        "www.".env("CENTRAL_DOMAIN"),
     ],
 
     /**
