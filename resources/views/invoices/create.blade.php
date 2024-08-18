@@ -54,7 +54,6 @@
                        id="id-522356">
             </div>
         </div>
-
         @push('styles')
             <style>
                 input:read-only {
