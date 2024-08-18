@@ -42,7 +42,7 @@ abstract class CrudController
             $request = app($this->storeRequest);
             return $this->service->store($request->validated());
         }
-        return $this->service->store($request);
+        return $this->service->store($request->except(["_token", "id"]));
     }
 
     public function show($id = null)
@@ -61,7 +61,7 @@ abstract class CrudController
             $request = app($this->updateRequest);
             return $this->service->update($id, $request->validated());
         }
-        return $this->service->update($id, $request->all());
+        return $this->service->update($id, $request->except(["_token","id"]));
     }
 
     public function destroy(Request $request): RedirectResponse

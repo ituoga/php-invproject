@@ -9,6 +9,6 @@ class StoreController extends BaseController
 {
     public function __invoke(Request $data)
     {
-        return $this->service->create($data->all());
+        return $this->service->create($data->except(["_token","id"]));
     }
 }
