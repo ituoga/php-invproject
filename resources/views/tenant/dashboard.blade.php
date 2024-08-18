@@ -1,6 +1,6 @@
 @php use App\Enums\InvoiceTypeEnum; @endphp
 <x-app-layout>
-    {{-- <h1>{{ __('Pradžia') }}</h1> --}}
+     <h1>{{ __('Pradžia') }}</h1>
 
     {{-- {!! $chart->container() !!} --}}
     {{-- {!! $chart->script() !!} --}}
