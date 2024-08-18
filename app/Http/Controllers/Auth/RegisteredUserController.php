@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -30,9 +33,11 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
+            'tenant' => ["required", "min:3", "max:100", "unique:tenants,id"],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
         ]);
 
         $user = User::create([
@@ -41,10 +46,26 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $tenant = Tenant::create(["id" => Str::slug($request->tenant), "email" => $request->email]);
+        $domain = $tenant->createDomain(Str::slug($request->tenant) . "." . env("CENTRAL_DOMAIN"));
+        /**
+         * @var \App\Models\Domain $domain
+         */
+        $domain->makePrimary();
+
+        Artisan::call('tenants:migrate', [
+            '--tenants' => [$tenant->getTenantKey()],
+        ]);
+        Artisan::call("tenant:create-user", [
+            "--tenants" => [$tenant->getTenantKey()],
+            "--email" => $request->email,
+            "--password" => $request->password,
+        ]);
+
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect($tenant->impersonationUrl(1));
     }
 }

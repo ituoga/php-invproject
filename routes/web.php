@@ -20,21 +20,29 @@ foreach (config('tenancy.central_domains') as $domain) {
     });
 
     Route::get('/dashboard', function () {
-      return view('dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+      /**
+       * @var \Illuminate\Contracts\Auth\StatefulGuard
+       */
+      $auth = auth();
+      $tenant = Tenant::where("email", $auth->user()?->email)->firstOrFail();
+      return redirect($tenant->impersonationUrl(1));
+      // return view('dashboard');
+    })->middleware(['auth' /*,'verified'*/])->name('dashboard');
 
-    Route::get("/login", function () {
-      // $a = Auth::guard("web")->loginUsingId(1);
-      $a = Tenant::first();
-      // dd($a->impersonationUrl(1));
-      return redirect()->to($a->impersonationUrl(1));
-  })->name("login");
+  //   Route::get("/login", function () {
+  //     $a = Tenant::where("email", request()->email)->firstOrFail();
+  //     // dd(Tenant::all(), $a);
+  //     // dd($a);
+  //     return redirect()->to($a->impersonationUrl(1));
+  // })->name("login");
 
     Route::middleware('auth')->group(function () {
-
-      
     });
+
+
+    require __DIR__ . '/auth.php';
   });
+  
 }
 
 // Route::middleware([
@@ -92,5 +100,3 @@ Route::get("/manifest.json", function () {
     'Access-Control-Max-Age' => '86400'
   ]);
 });
-
-require __DIR__ . '/auth.php';

@@ -11,9 +11,9 @@ use App\Views\BaseViewInterface;
 class ProductService extends BaseService implements BaseServiceInterface
 {
 
-    protected string $redirectStore = "products.index";
-    protected string $redirectUpdate = "products.index";
-    protected string $redirectDelete = "products.index";
+    protected string $redirectStore = "/products";
+    protected string $redirectUpdate = "/products";
+    protected string $redirectDelete = "/products";
     
     public function __construct(
         BaseRepositoryInterface $repository,

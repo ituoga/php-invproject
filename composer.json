@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "consoletvs/charts": "6.*",
+        "josiasmontag/laravel-recaptchav3": "^1.0",
         "laravel/cashier": "^15.4",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
@@ -16,6 +18,7 @@
         "barryvdh/laravel-debugbar": "^3.13",
         "brianium/paratest": "^7.4",
         "fakerphp/faker": "^1.23",
+        "kkomelin/laravel-translatable-string-exporter": "^1.22",
         "larastan/larastan": "^2.9",
         "laravel/breeze": "^2.1",
         "laravel/pint": "^1.13",
@@ -24,6 +27,7 @@
         "nunomaduro/collision": "^8.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
+        "squizlabs/php_codesniffer": "^3.10",
         "timwassenburg/laravel-service-generator": "^1.0"
     },
     "autoload": {
@@ -53,7 +57,10 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
-        ]
+        ],
+        "scripts": {
+            "phpstan": "vendor/bin/phpstan -c phpstan.neon"
+        }
     },
     "extra": {
         "laravel": {

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository implements BaseRepositoryInterface
 {
-    protected Model $model;
+    protected $model;
 
     public function all()
     {
@@ -26,8 +26,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
     public function update($id, $request)
     {
         $item = $this->model->find($id);
-        $item->fill($request->validated());
-        return $item->update();
+        return $item->update($request);
 
     }
 

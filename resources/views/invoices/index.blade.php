@@ -1,37 +1,25 @@
 <x-app-layout>
-  <h1>Saskaitos</h1>
+  <h1>{{ __('Sąskaitos') }}</h1>
 
   @include("components.search_buttons", ["createNew" => route("invoices.create"), "filter" => ""])
 
-  <h2>Darbų statuso apžvalga</h2>
-
   <table>
     <tr>
-      <th>Dokumento Data</th>
-      <th>Darbuotojas</th>
-      <th>Veiksmai</th>
+      <th>{{ __('Dokumento Data') }}</th>
+      <th>{{ __('Darbuotojas') }}</th>
+      <th>{{ __('Veiksmai') }}</th>
     </tr>
     @foreach($items as $item)
-    <tr data-tr="Saskaita {{ $item->id }}">
-      <td data-th="Dokumento Data">{{ $item->document_date }}</td>
-      <td data-th="Darbuotojas">{{ $item->contrahent_name }}</td>
-      <td data-th="Veiksmai">
-        <div class="row">
-          <div class="col">
-            <a href="{{ route("invoices.read", $item) }}" class="btn btn--default">Peržiūrėti</a>
-          </div>
-          <div class="col">
 
-            <a href="{{ route("invoices.edit", $item) }}" class="btn btn--default">Redaguoti</a>
-          </div>
-          <div class="col">
-            <form action="{{ route("invoices.delete", $item) }}" method="POST">
-              @csrf
-              @method("DELETE")
-              <button type="submit" class="btn btn--default">Ištrinti</button>
-            </form>
-          </div>
-          </div>
+    <tr data-tr="{{ __('Sąskaita') }} {{ $item->id }}">
+      <td data-th="{{ __('Dokumento Data') }}">{{ $item->document_date }}</td>
+      <td data-th="{{ __('Darbuotojas') }}">{{ $item->contrahent_name }}</td>
+      <td data-th="{{ __('Veiksmai') }}">
+          @include("partials.actions", [
+            'item' => $item,
+            'editRoute' => "invoices.edit",
+          ])
+
         </td>
     </tr>
     @endforeach

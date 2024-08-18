@@ -12,6 +12,10 @@ use Laravel\Cashier\Billable;
 use Stancl\Tenancy\Database\Models\Domain;
 use Stancl\Tenancy\Database\Models\ImpersonationToken;
 
+/**
+ * 
+ * @property string $email
+ */
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVerifyEmail
 {
     use HasFactory, Notifiable;

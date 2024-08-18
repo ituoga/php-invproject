@@ -8,7 +8,7 @@
 
         <div class="site-card clearfix">
             <div class="site-card__header">
-                <h4>Produktas</h4>
+                <h4>{{__("Produktas")}}</h4>
             </div>
             <div class="site-card__body">
                 <div class="row gy-3">

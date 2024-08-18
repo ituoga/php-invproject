@@ -14,26 +14,24 @@
             </div>
             <div class="col-12 col-sm-6 col-xl-4 m-b-20 order-sm-first">
                 <form action="{{ route('products.index') }}" method="GET" class="clearfix">
-                    <label for="id-047724" class="visually-hidden">ieškoti</label>
+                    <label for="id-047724" class="visually-hidden">{{__("ieškoti")}}</label>
                     <div class="form-regular__wrap">
                         <span class="form-regular__icon"><i class="icon-search" aria-hidden="true"></i></span>
-                        <input type="text" name="text" placeholder="Ieškoti kliento" id="id-047724">
+                        <input type="text" name="text" placeholder="{{__("Ieškoti produkto")}}" id="id-047724">
                     </div>
                 </form>
             </div>
         </div>
 
-        <h2>Darbų statuso apžvalga</h2>
-
         <table>
             <tr>
-                <th>Darbo ID</th>
-                <th>Kaina</th>
+                <th>{{__("Pavadinimas")}}</th>
+                <th>{{__("Kaina")}}</th>
             </tr>
             @foreach ($items as $item)
-                <tr data-tr="Darbo statusas">
-                    <td data-th="Statusas">{{ $item->name }}</td>
-                    <td data-th="Darbuotojas">{{ $item->price }}</td>
+                <tr data-tr="{{ $item->name }}">
+                    <td data-th="{{__("Pavadinimas")}}">{{ $item->name }}</td>
+                    <td data-th="{{__("Kaina")}}">{{ $item->price }}</td>
                 </tr>
             @endforeach
         </table>

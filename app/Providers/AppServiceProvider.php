@@ -28,6 +28,8 @@ use App\Views\ContrahentView;
 use App\Views\InvoiceView;
 use App\Views\ProductView;
 use App\Views\ProfileView;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -38,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+
+        Model::unguard();
+
         $this->provide(
             ProductController::class,
             ProductService::class,
@@ -54,7 +59,7 @@ class AppServiceProvider extends ServiceProvider
         $this->provide(Invoice\EditController::class, InvoicesService::class, InvoiceRepository::class, InvoiceView::class);
 
         $this->provide(Config\StoreController::class, ConfigService::class, ConfigRepository::class,  ConfigView::class,);
-        
+
         app()->when(ProfileService::class)->needs(BaseServiceInterface::class)->give(ConfigService::class);
 
         $this->provide(
@@ -79,10 +84,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('layouts.app', function ($view) {
+
             /**
-             * @var User $user
+             * @var \Illuminate\Contracts\Auth\StatefulGuard $auth
              */
-            $user = auth()->user();
+            $auth = auth();
+            $user = $auth->user();
             $view->with('current_user', $user);
         });
     }
