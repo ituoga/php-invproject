@@ -23,13 +23,15 @@ class ConfigService extends BaseService implements BaseServiceInterface
     }
 
     /**
-     * Returns model 
+     * Returns model
      * @param mixed $id
      * @return Factory|View
      */
-    public function read($id = null): Factory|View
+    public function read($id = null): mixed
     {
-        return $this->repository->read($id);
+        $data =  $this->repository->read($id);
+        return $data;
+        // return $this->view->view(['item'=>$data]);
     }
 
     /**
@@ -37,13 +39,38 @@ class ConfigService extends BaseService implements BaseServiceInterface
      * @param mixed $data
      * @return RedirectResponse
      */
-    public function store($data = []): RedirectResponse
+    public function create($data = []): RedirectResponse
     {
         $model = $this->repository->read(null);
         if (!empty($model)) {
-            return $model->update($data);
+            $model->update($data);
+            return redirect()->to("/");
         }
         $this->repository->create($data);
         return redirect()->to("/");
     }
+
+    public function incrementDebitInvoiceNumber()
+    {
+        $model = app(ConfigService::class)->read();
+        //@phpstan-ignore-next-line
+        $data['invoice_number_deb'] = $model->invoice_number_deb + 1;
+        $this->create($data);
+    }
+
+    public function incrementPreInvoiceNumber()
+    {
+        $model = app(ConfigService::class)->read();
+        //@phpstan-ignore-next-line
+        $data['invoice_number_pre'] = $model->invoice_number_pre + 1;
+        $this->create($data);
+    }
+    public function incrementCreditInvoiceNumber()
+    {
+        $model = app(ConfigService::class)->read();
+        //@phpstan-ignore-next-line
+        $data['invoice_number_cre'] = $model->invoice_number_cre + 1;
+        $this->create($data);
+    }
 }
+

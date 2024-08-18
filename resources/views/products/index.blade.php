@@ -23,8 +23,6 @@
             </div>
         </div>
 
-        <h2>Darbų statuso apžvalga</h2>
-
         <table>
             <tr>
                 <th>Darbo ID</th>

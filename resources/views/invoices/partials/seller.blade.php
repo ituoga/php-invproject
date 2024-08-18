@@ -4,24 +4,37 @@
       <h4>Pardavėjas</h4>
     </div>
     <div class="site-card__body">
-      <h5>Petras Petraitis IDV</h5>
+      <h5>{{ $config->seller_name }}</h5>
       <dl>
+        @if( $config->seller_code )
         <dt>{{ __("Kodas")}}:</dt>
-        <dd>1369875214</dd>
+        <dd>{{ $config->seller_code }}</dd>
+        @endif
+        @if( $config->seller_phone )
         <dt>{{ __("Telefonas")}}:</dt>
-        <dd>+37061147876</dd>
+        <dd>{{ $config->seller_phone }}</dd>
+        @endif
+        @if( $config->seller_email )
         <dt>{{ __("El.paštas")}}:</dt>
-        <dd><a href="mailto:abc@bbt.lt">abc@bbt.lt</a></dd>
+        <dd>{{ $config->seller_email }}</dd>
+        @endif
+        @if( $config->seller_addres )
         <dt>{{ __("Adresas")}}:</dt>
-        <dd>Kareivių g. 3</dd>
-        <dt>{{ __("Miestas")}}:</dt>
-        <dd>Vilnius</dd>
+        <dd>{{ $config->seller_address }}</dd>
+        @endif
+        @if( $config->seller_country )
         <dt>{{ __("Šalis")}}:</dt>
-        <dd>Lietuva</dd>
-        <dt>{{ __("PVM ko")}}das:</dt>
-        <dd>32654998123548</dd>
-        <dt>{{ __("Sąskaitos nume")}}ris:</dt>
-        <dd>LT469874132168798646878</dd>
+        <dd>{{ $config->seller_country }}</dd>
+        @endif
+        @if( $config->seller_vat )
+        <dt>{{ __("PVM kodas")}}:</dt>
+        <dd>{{ $config->seller_vat }}</dd>
+        @endif
+        @if( $config->seller_bank )
+        <dt>{{ __("Sąskaitos numeris")}}:</dt>
+        <dd>{{ $config->seller_bank }}</dd>
+        @endif
+
       </dl>
     </div>
   </div>

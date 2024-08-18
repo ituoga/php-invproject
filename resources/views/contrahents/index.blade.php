@@ -3,7 +3,7 @@
 <div class="row align-items-center">
         <div class="col m-b-20 site-buttons">
                 <a href="{{ route('contrahents.create') }}" class="btn btn--primary"><i class="icon-plus" aria-hidden="true"></i><span class="hidden-xs">
-                    Sukurti 
+                    Sukurti
                 </span></a>
         </div>
         <div class="col-12 col-sm-6 col-xl-4 m-b-20 order-sm-first">
@@ -35,9 +35,7 @@
                     <a href="mailto:{{$contrahent->email}}">{{ $contrahent->email }}</a>
                 </td>
                 <td>
-                    @can('manage_contrahents')
-                        <a href="{{ url('contrahents/' . $contrahent->id . '/edit') }}">Redaguoti</a>
-                    @endcan
+                    @include("partials.actions", ['item' => $contrahent, 'editRoute' => "contrahents.edit"])
                 </td>
             </tr>
         @endforeach

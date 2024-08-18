@@ -34,7 +34,7 @@ abstract class BaseService implements BaseServiceInterface
         return $this->view->list(['items' => $items]);
     }
 
-    public function create($data=[]): Factory|View
+    public function create($data=[]): mixed
     {
         return $this->view->create([]);
     }
@@ -45,7 +45,7 @@ abstract class BaseService implements BaseServiceInterface
         return redirect()->to($this->redirectStore);
     }
 
-    public function read($id): Factory|View
+    public function read($id): mixed
     {
         $item = $this->repository->read($id);
         return $this->view->view(['item' => $item]);
@@ -67,9 +67,10 @@ abstract class BaseService implements BaseServiceInterface
                 $data = $request->all();
             }
         }
-        $item = $this->repository->read($id);
-        $item->fill($data);
-        $item->update();
+        // $item = $this->repository->read($id);
+        // $item->fill($data);
+        // $item->update();
+        $this->repository->update($id, $data);
 
         return redirect()->to($this->redirectUpdate);
     }

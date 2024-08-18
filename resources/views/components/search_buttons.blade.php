@@ -11,7 +11,7 @@
             <label for="id-047724" class="visually-hidden">ieškoti</label>
             <div class="form-regular__wrap">
                 <button class="form-regular__icon"><i class="icon-search" aria-hidden="true"></i></button>
-                <input type="text" name="text" placeholder="Ieškoti kliento" id="id-047724">
+                <input type="text" name="q" placeholder="Ieškoti" id="id-047724">
             </div>
         </form>
     </div>

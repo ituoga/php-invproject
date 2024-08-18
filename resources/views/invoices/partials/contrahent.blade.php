@@ -13,17 +13,18 @@
                 <div class="col-12">
                     <label for="id-560955" class="form-regular__label">{{ __('Pavadinimas') }}<span class='text-red'>*</span></label>
                     <input type="text" name="contrahent_name" placeholder="{{ __('Įveskite pirkėjo pavadinimą') }}"
-                        value="{{ $item?->contrahent_name }}">
+                        value="{{ $item?->contrahent_name }}" class="contrahent_name">
                 </div>
                 <div class="col-12">
                     <label for="id-733324" class="form-regular__label">{{ __('Kodas') }}<span class='text-red'>*</span></label>
                     <input type="text" name="contrahent_code" placeholder="{{ __('Įveskite pirkėjo kodą') }}"
-                        value="{{ $item?->contrahent_code }}">
+                        value="{{ $item?->contrahent_code }}" class="contrahent_code">
                 </div>
                 <div class="col-12">
                     <label for="id-051784" class="form-regular__label">{{ __('PVM') }} kodas</label>
                     <input type="text" name="contrahent_vat" placeholder="{{ __('Įveskite pirkėjo PVM kodą') }}"
                         id="id-051784">
+
                 </div>
                 <div class="col-12">
                     <label for="id-826525" class="form-regular__label">{{ __('El') }}.paštas</label>
