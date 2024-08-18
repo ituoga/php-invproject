@@ -43,7 +43,7 @@ Route::middleware([
                     'backgroundColor' => 'red',
                     'fill' => false,
                 ]);
-                
+
                 $chart->dataset('My kita', 'line', [2, 2, 2])->options([
                     'borderColor' => 'blue',
                     'backgroundColor' => 'blue',
@@ -66,6 +66,7 @@ Route::middleware([
 
             // Route::resource("invoices", InvoiceController::class);
 
+            Route::get("/invoices/create/{type}", Invoice\RedirectController::class)->name("invoices.redirect");
             Route::get("invoices/create", Invoice\CreateController::class)->name("invoices.create");
             Route::get("invoices/{id}", Invoice\ReadController::class)->name("invoices.read");
             Route::put("invoices/{id}", Invoice\UpdateController::class)->name("invoices.update");
@@ -81,7 +82,7 @@ Route::middleware([
 
             Route::resource("products", ProductController::class);
 
-            
+
 
         }); // end ValidateProfile
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

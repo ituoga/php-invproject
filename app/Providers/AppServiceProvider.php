@@ -29,6 +29,7 @@ use App\Views\InvoiceView;
 use App\Views\ProductView;
 use App\Views\ProfileView;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+
+        Model::unguard();
+
         $this->provide(
             ProductController::class,
             ProductService::class,
@@ -80,7 +84,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('layouts.app', function ($view) {
-            
+
             /**
              * @var \Illuminate\Contracts\Auth\StatefulGuard $auth
              */

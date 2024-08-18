@@ -23,7 +23,7 @@ class ConfigService extends BaseService implements BaseServiceInterface
     }
 
     /**
-     * Returns model 
+     * Returns model
      * @param mixed $id
      * @return Factory|View
      */
@@ -55,7 +55,22 @@ class ConfigService extends BaseService implements BaseServiceInterface
         $model = app(ConfigService::class)->read();
         //@phpstan-ignore-next-line
         $data['invoice_number_deb'] = $model->invoice_number_deb + 1;
-        $this->create($data);        
+        $this->create($data);
+    }
+
+    public function incrementPreInvoiceNumber()
+    {
+        $model = app(ConfigService::class)->read();
+        //@phpstan-ignore-next-line
+        $data['invoice_number_pre'] = $model->invoice_number_pre + 1;
+        $this->create($data);
+    }
+    public function incrementCreditInvoiceNumber()
+    {
+        $model = app(ConfigService::class)->read();
+        //@phpstan-ignore-next-line
+        $data['invoice_number_cre'] = $model->invoice_number_cre + 1;
+        $this->create($data);
     }
 }
 

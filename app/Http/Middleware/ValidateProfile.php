@@ -16,7 +16,17 @@ class ValidateProfile
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(app(Config::class)->count() === 0 && !$request->routeIs('profile.edit')) {
+        $model = app(Config::class);
+        if($model->count() === 0 && !$request->routeIs('profile.edit')) {
+            return redirect()->route('profile.edit')->with('status', 'profile-missing');
+        }
+        $config = $model->first();
+        if(
+            $config->company_name === null 
+            && $config->invoice_series_deb === null 
+            && $config->invoice_series_cre === null 
+            && $config->invoice_series_pre=== null 
+            && !$request->routeIs('profile.edit')) {
             return redirect()->route('profile.edit')->with('status', 'profile-missing');
         }
         return $next($request);
