@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -45,8 +46,8 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $tenant = Tenant::create(["id" => $request->tenant, "email" => $request->email]);
-        $domain = $tenant->createDomain($request->tenant . "." . env("CENTRAL_DOMAIN"));
+        $tenant = Tenant::create(["id" => Str::slug($request->tenant), "email" => $request->email]);
+        $domain = $tenant->createDomain(Str::slug($request->tenant) . "." . env("CENTRAL_DOMAIN"));
         /**
          * @var \App\Models\Domain $domain
          */
