@@ -22,14 +22,14 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
-    
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    
+
 
     {{--
     FIXIT: font-ende padaryti stiliu input type=select. Yra 2 selectionai Tasko formoje.
@@ -77,7 +77,7 @@
 
 
 @stack('styles')
-  
+
 </head>
 
 <body>
@@ -92,7 +92,7 @@
             <a href="{{ url('/') }}" class="site-logo" aria-label="8y.lt logo"><img src="{{ url('/images/logo.svg') }}"
                     alt=""></a>
 
-                    
+
             <nav class="nav-user">
                 <ul class="nav-user__list">
                     <li class="nav-user__items"><a href="{{ route("profile.edit") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">Profilis</span></a></li>
@@ -138,17 +138,17 @@
                         <li class="nav-main__items">
                             <a href="{{ route('invoices.index') }}"
                                 class="nav-main__links {{ request()->is('invoices*') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-list" aria-hidden="true"></i>Saskaitos</a>
+                                    class="icon-list" aria-hidden="true"></i>{{__("Klientai")}}</a>
                         </li>
                         <li class="nav-main__items">
                             <a href="{{ route('contrahents.index') }}"
                                 class="nav-main__links {{ request()->is('contrahents*') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-person-plus" aria-hidden="true"></i>Kontrahentai</a>
+                                    class="icon-person-plus" aria-hidden="true"></i>{{__("Klientai")}}</a>
                         </li>
                         <li class="nav-main__items">
                             <a href="{{ route('products.index') }}"
                                 class="nav-main__links {{ request()->is('products*') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-calendar" aria-hidden="true"></i>Produktai</a>
+                                    class="icon-calendar" aria-hidden="true"></i>{{__("Produktai")}}</a>
                         </li>
 
 
@@ -199,14 +199,14 @@
             <nav class="nav-bottom">
                 <ul class="nav-bottom__list">
                     <li class="nav-bottom__items"><a href="{{ url('/') }}" class="nav-bottom__links "><i
-                                class="icon-home" aria-hidden="true"></i>Pradžia</a></li>
+                                class="icon-home" aria-hidden="true"></i>{{__("Pradžia")}}</a></li>
                     <li class="nav-bottom__items"><a href="{{ route('contrahents.index') }}"
-                            class="nav-bottom__links"><i class="icon-calendar" aria-hidden="true"></i>Kontrahentai</a>
+                            class="nav-bottom__links"><i class="icon-calendar" aria-hidden="true"></i>{{__("Kontrahentai")}}</a>
                     </li>
                     <li class="nav-bottom__items"><a href="{{ route('invoices.create') }}" class="nav-bottom__links"><i
-                                class="icon-calendar-plus" aria-hidden="true"></i>Išrašyti SF</a></li>
+                                class="icon-calendar-plus" aria-hidden="true"></i>{{__("Išrašyti SF")}}</a></li>
                     <li class="nav-bottom__items"><a href="{{ route('products.index') }}" class="nav-bottom__links"><i
-                                class="icon-list" aria-hidden="true"></i>Produktai</a></li>
+                                class="icon-list" aria-hidden="true"></i>{{__("Produktai")}}</a></li>
                 </ul>
             </nav>
 

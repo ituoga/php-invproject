@@ -34,7 +34,7 @@
         </div>
         <div class="col col-xl-1">
             <label for="id-471668" class="form-regular__label">{{ __('Suma') }}</label>
-            <input x-model="line.total" type="text" x-bind:name="`lines[${idx}][total]`" placeholder="0" id="id-471668">
+            <input x-model="line.total" type="text" x-bind:name="`lines[${idx}][total]`" placeholder="0" id="id-471668" readonly>
         </div>
         <div class="col-auto">
             <ul class="site-helpers justify-content-end m-t-34">
@@ -83,7 +83,7 @@ if(!empty($item)) {
                 updateRows() {
                     this.lines.forEach(line => {
                         this.updateRow(line);
-                    });  
+                    });
                 },
                 updateRow(line) {
                     let pPrice = parseFloat(line.product_price).toFixed(2) || 0;

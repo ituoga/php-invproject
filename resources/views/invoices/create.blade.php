@@ -13,7 +13,7 @@
                 <label for="id-047724" class="form-regular__label">{{ __('Išrašymo data') }}</label>
                 <div class="form-regular__wrap">
                     <span class="form-regular__icon"><i class="icon-calendar-plus" aria-hidden="true"></i></span>
-                    <input type="date" name="document_date" value="{{ now()->format('Y-m-d') }}"
+                    <input type="date" name="document_date" value="{{ old("document_date",now()->format('Y-m-d')) }}"
                            placeholder="{{ __('Pasirinkite datą') }}" id="id-047724">
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <label for="id-750453" class="form-regular__label">{{ __('Apmokėti iki') }}</label>
                 <div class="form-regular__wrap">
                     <span class="form-regular__icon"><i class="icon-calendar-plus" aria-hidden="true"></i></span>
-                    <input type="date" name="pay_until" value="{{ now()->addDays(14)->format('Y-m-d') }}"
+                    <input type="date" name="pay_until" value="{{ old("pay_until", now()->addDays(14)->format('Y-m-d')) }}"
                            placeholder="{{ __('Pasirinkite datą') }}" id="id-750453">
                 </div>
             </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-12 col-sm-6 col-xl-3 m-b-20">
                 <label for="id-458066" class="form-regular__label">{{ __('Kursas') }}</label>
-                <input type="text" name="invoice_exchange_rate" placeholder="1.000000" id="id-458066" value="1.00">
+                <input type="text" name="invoice_exchange_rate" placeholder="1.000000" id="id-458066" value="old("invoice_exchange_rate", "1.00")>
             </div>
             <div class="col-12 col-sm-6 col-xl-3 m-b-20">
                 <label for="id-697453" class="form-regular__label">{{ __('Serija') }}</label>

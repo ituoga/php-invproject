@@ -1,5 +1,5 @@
 <x-app-layout>
-
+<h1>{{__("Klientai")}}</h1>
 <div class="row align-items-center">
         <div class="col m-b-20 site-buttons">
                 <a href="{{ route('contrahents.create') }}" class="btn btn--primary"><i class="icon-plus" aria-hidden="true"></i><span class="hidden-xs">
