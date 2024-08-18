@@ -40,7 +40,7 @@
             </div>
             <div class="col-12 col-sm-6 col-xl-3 m-b-20">
                 <label for="id-458066" class="form-regular__label">{{ __('Kursas') }}</label>
-                <input type="text" name="invoice_exchange_rate" placeholder="1.000000" id="id-458066" value="{{old("invoice_exchange_rate", "1.00")"}}">
+                <input type="text" name="invoice_exchange_rate" placeholder="1.000000" id="id-458066" value="{{old("invoice_exchange_rate", "1.00")}}">
             </div>
             <div class="col-12 col-sm-6 col-xl-3 m-b-20">
                 <label for="id-697453" class="form-regular__label">{{ __('Serija') }}</label>
