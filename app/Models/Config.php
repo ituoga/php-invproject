@@ -18,5 +18,5 @@ class Config extends Model
 {
     use HasFactory;
 
-    public $guarded = [];
+    public $guarded = ["_token"];
 }
