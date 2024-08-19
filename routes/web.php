@@ -9,13 +9,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
-
-foreach (config('tenancy.central_domains') as $domain) {
-  Route::domain($domain)->group(function () {
+$domains = config('tenancy.central_domains');
+$domains = array_reverse($domains);
+foreach ($domains as $domain) {
+  Route::domain($domain)->middleware([\App\Http\Middleware\RedirectToNonWwwMiddleware::class])->group(function () {
     // your actual routes
-    Route::get('/', function () {
-      return view('welcome');
-    });
+//    Route::get('/', function () {
+//      return view('welcome');
+//    });
+
+    Route::get("/", \App\Actions\Central\Blog\Index::class);
+    Route::get("/p/{slug}", \App\Actions\Central\Blog\View::class);
+    Route::get("/sitemap.xml", \App\Actions\Central\Sitemap\Index::class);
 
     Route::get('/dashboard', function () {
       /**

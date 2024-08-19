@@ -1,6 +1,6 @@
 <x-app-layout>
 <h1>{{__("Klientai")}}</h1>
-    
+
     @include("components.search_buttons", ["createNew" => route("contrahents.create"), "filter" => ""])
 
     <table>
