@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use App\Charts\VatBoundaryChart;
+use App\Http\Middleware\LocalizationMiddleware;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
@@ -30,10 +32,16 @@ Route::middleware([
         return UserImpersonation::makeResponse($token);
     })->name('impersonate');
 
-    Route::middleware(["auth"])->group(function () {
+    Route::middleware(["auth", LocalizationMiddleware::class])->group(function () {
 
         Route::middleware([ValidateProfile::class])->group(function () {
 
+            Route::get("/set-lang", function(Request $request) {
+                if($request->query("lang") == "lt" || $request->query("lang") == "en") {
+                    session(["locale" => $request->get("lang")]);
+                }
+                return redirect()->to("/");
+            });
 
             Route::get('/', function () {
                 $chart = app(VatBoundaryChart::class);
