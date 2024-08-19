@@ -94,7 +94,6 @@
 
             <nav class="nav-user">
                 <ul class="nav-user__list">
-{{--                    @dd(app()->getLocale())--}}
                     @if(app()->getLocale() == "lt")
                         <li class="nav-user__items"><a href="{{ url("/set-lang?lang=en") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">EN</span></a></li>
                     @else
