@@ -54,7 +54,7 @@
 
         <div class="row">
             <div class="col-6 col-md-auto m-b-20">
-                <button type="submit" class="btn btn--secondary btn--block-xs">{{__("Saugoti nustatymu")}}</button>
+                <button type="submit" class="btn btn--secondary btn--block-xs">{{__("Saugoti nustatymus")}}</button>
             </div>
         </div>
     </form>
