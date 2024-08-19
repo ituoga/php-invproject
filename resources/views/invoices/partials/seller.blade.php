@@ -15,7 +15,7 @@
         <dd>{{ $config->seller_phone }}</dd>
         @endif
         @if( $config->seller_email )
-        <dt>{{ __("El.paštas")}}:</dt>
+        <dt>{{ __("El. paštas")}}:</dt>
         <dd>{{ $config->seller_email }}</dd>
         @endif
         @if( $config->seller_addres )

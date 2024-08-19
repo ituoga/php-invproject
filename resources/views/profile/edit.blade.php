@@ -8,7 +8,7 @@
         <dl>
             <dt>{{ __('Vykdau individualią veiklą') }}:</dt>
             <dd>
-                {{-- <input type="text" name="seller_idv" value="" placeholder="{{ __('Vygdau individualią veiklą') }}"> --}}
+                {{-- <input type="text" name="seller_idv" value="" placeholder="{{ __('Vykdau individualią veiklą') }}"> --}}
                 <select name="seller_idv" class="js-select" style="width: 100%">
                     <option value="no" @if(old("seller_idv") == "no") selected @endif >{{ __('Ne') }}</option>
                     <option value="yes" @if(old("seller_idv") == "yes") selected @endif>{{ __('Taip') }}</option>
