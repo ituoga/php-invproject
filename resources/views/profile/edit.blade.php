@@ -64,7 +64,7 @@
 
     <form method="post" action="{{ route('config.update') }}" class="form-regular clearfix">
         @csrf
-        @method("post");
+        @method("post")
         <dl>
             <dt>{{ __('Išankstinių serija') }}:</dt>
             <dd><input type="text" name="invoice_series_pre" value="{{ old("invoice_series_pre",$config?->invoice_series_pre) }}" placeholder="{{ __('P') }}"></dd>
