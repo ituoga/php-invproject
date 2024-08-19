@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-12">
                     <label for="email" class="form-regular__label">{{__("El. paštas")}}</label>
-                    <input type="email" name="email" placeholder="{{__("Įveskite pirkėjo el.paštą")}}" id="email" value="{{ old('email') }}">
+                    <input type="email" name="email" placeholder="{{__("Įveskite pirkėjo el. paštą")}}" id="email" value="{{ old('email') }}">
                 </div>
 
                 <div class="col-12">

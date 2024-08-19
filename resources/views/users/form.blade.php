@@ -27,16 +27,16 @@
                 </div> -->
                 <div class="col-12">
                     <label for="email" class="form-regular__label">El. paštas</label>
-                    <input type="email" name="email" placeholder="Įveskite pirkėjo el.paštą" id="email"
+                    <input type="email" name="email" placeholder="Įveskite pirkėjo el. paštą" id="email"
                         value="{{ isset($user) ? $user->email : old('email') }}">
                 </div>
                 <div class="col-12">
                     <label for="password" class="form-regular__label">Slaptažodis</label>
                     @if($action == 'create')
-                        <input type="text" name="password" placeholder="Įveskite pirkėjo el.paštą" id="email"
+                        <input type="text" name="password" placeholder="Įveskite pirkėjo el. paštą" id="email"
                             value="{{ \Str::password(16, true, true, false) }}">
                     @else
-                        <input type="text" name="password" placeholder="Įveskite pirkėjo el.paštą" id="email" value="">
+                        <input type="text" name="password" placeholder="Įveskite pirkėjo el. paštą" id="email" value="">
                     @endif
                 </div>
                 <div class="col-12">
