@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-12">
                     <label for="id-826525" class="form-regular__label">{{ __('El') }}.paštas</label>
-                    <input type="text" name="contrahent_email" placeholder="{{ __('Įveskite pirkėjo el. pašto adresą') }}s"
+                    <input type="text" name="contrahent_email" placeholder="{{ __('Įveskite pirkėjo el. paštą') }}s"
                     value="{{ old("contrahent_email",$item?->contrahent_email) }}">
                 </div>
                 <div class="col-12">
