@@ -14,7 +14,7 @@
                     <option value="yes" @if(old("seller_idv") == "yes") selected @endif>{{ __('Taip') }}</option>
                 </select>
             </dd>
-            <dt>{{ __('Pavadinimas ( vardas/pavarde arba imones pavadinimas)') }}:</dt>
+            <dt>{{ __('Pavadinimas (asmens ar įmonės vardas)') }}:</dt>
             <dd><input type="text" name="seller_name" value="{{ old("seller_name",$config?->seller_name) }}" placeholder="{{ __('Pavadinimas') }}"></dd>
             <dt>{{ __('Kodas') }}:</dt>
             <dd><input type="text" name="seller_code" value="{{ old("seller_code",$config?->seller_code) }}" placeholder="{{ __('Kodas') }}"></dd>

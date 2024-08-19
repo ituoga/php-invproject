@@ -18,7 +18,7 @@ class ValidateProfile
     {
         $model = app(Config::class);
         if($model->count() === 0 && !$request->routeIs('profile.edit')) {
-            return redirect()->route('profile.edit')->with('status', __('Prieš pradedantn naudotis sistema būtina užpildytį visas 3 skiltis'));
+            return redirect()->route('profile.edit')->with('status', __('Norėdami naudotis sistema - užpildykite visas skiltis'));
         }
         $config = $model->first();
         if(
@@ -27,7 +27,7 @@ class ValidateProfile
             && $config->invoice_series_cre === null
             && $config->invoice_series_pre=== null
             && !$request->routeIs('profile.edit')) {
-            return redirect()->route('profile.edit')->with('status', __('Prieš pradedantn naudotis sistema būtina užpildytį visas 3 skiltis'));
+            return redirect()->route('profile.edit')->with('status', __('Norėdami naudotis sistema - užpildykite visas skiltis'));
         }
         return $next($request);
     }
