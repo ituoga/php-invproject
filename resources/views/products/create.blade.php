@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-12">
                         <label for="email" class="form-regular__label">{{__("Matas")}}</label>
-                        <input type="unit" name="unit" placeholder="{{__("Įveskite pirkėjo el")}}.paštą" id="email"
+                        <input type="unit" name="unit" placeholder="{{__("Įveskite pirkėjo el. paštą")}}" id="email"
                             value="{{ old('unit') }}">
                     </div>
 
