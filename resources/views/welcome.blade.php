@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -46,6 +45,7 @@
                         @endauth
 
                     @endif
+
                 </div>
 
                 <a href="#nav-main" class="site-hamburger site-hamburger--collapse js-dropdown-link" aria-label="Navigacija">

@@ -40,11 +40,11 @@
                 <div class="header__buttons">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ route("login") }}" class="btn btn--default">Login</a>
-                            <a href="{{ route("register")  }}" class="btn btn--transparent">Register</a>
-                        @else
                             <a href="{{ url("/dashboard") }}" class="btn btn--default">Mano paskyra</a>
                             <a href="{{ route("logout") }}" class="btn btn--transparent">Atsijungti</a>
+                        @else
+                            <a href="{{ route("login") }}" class="btn btn--default">Login</a>
+                            <a href="{{ route("register")  }}" class="btn btn--transparent">Register</a>
                         @endauth
 
                     @endif

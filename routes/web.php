@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomainOrSubdomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 $domains = config('tenancy.central_domains');
-$domains = array_reverse($domains);
+$domains = [array_shift($domains)];
+
 foreach ($domains as $domain) {
   Route::domain($domain)->middleware([\App\Http\Middleware\RedirectToNonWwwMiddleware::class])->group(function () {
     // your actual routes
@@ -31,13 +32,6 @@ foreach ($domains as $domain) {
       return redirect($tenant->impersonationUrl(1));
       // return view('dashboard');
     })->middleware(['auth' /*,'verified'*/])->name('dashboard');
-
-  //   Route::get("/login", function () {
-  //     $a = Tenant::where("email", request()->email)->firstOrFail();
-  //     // dd(Tenant::all(), $a);
-  //     // dd($a);
-  //     return redirect()->to($a->impersonationUrl(1));
-  // })->name("login");
 
     Route::middleware('auth')->group(function () {
     });

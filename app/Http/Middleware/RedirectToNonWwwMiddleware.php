@@ -17,6 +17,7 @@ class RedirectToNonWwwMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (substr($request->header('host'), 0, 4) == 'www.') {
+
             $request->headers->set('host', config("tenancy.central_domains")[0]);
             return Redirect::to($request->path());
         }
