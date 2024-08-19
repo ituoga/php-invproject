@@ -41,7 +41,7 @@
     <table style="">
         <tr>
             <th>Klientas</th>
-            <th>El.paštas</th>
+            <th>El. paštas</th>
             <th>Numeris</th>
             <th>Adresas</th>
             <th class="text-right">Veiksmai</th>
@@ -50,7 +50,7 @@
         @foreach ($users as $u)
         <tr data-tr="@if (request()->has('is_worker')) Darbuotojas @elseif (request()->has('is_client')) Klientas @endif">
             <td data-th="Klientas">{{ $u->name }}</td>
-            <td data-th="El.paštas">{{ $u->email }}</td>
+            <td data-th="El. paštas">{{ $u->email }}</td>
             <td data-th="Numeris">{{ $u->phone }}</td>
             <td data-th="Adresas">{{ $u->address }}</td>
             <td data-th="Veiksmai">

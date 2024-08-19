@@ -26,7 +26,7 @@
                     <input type="text" name="company_person" placeholder="Įveskite pirkėjo PVM kodą" id="company_person" value="{{ isset($user) ? $user->company_person : old('company_person') }}">
                 </div> -->
                 <div class="col-12">
-                    <label for="email" class="form-regular__label">El.paštas</label>
+                    <label for="email" class="form-regular__label">El. paštas</label>
                     <input type="email" name="email" placeholder="Įveskite pirkėjo el.paštą" id="email"
                         value="{{ isset($user) ? $user->email : old('email') }}">
                 </div>
