@@ -37,8 +37,8 @@ Route::middleware([
         Route::middleware([ValidateProfile::class])->group(function () {
 
             Route::get("/set-lang", function(Request $request) {
-                if(\Illuminate\Support\Arr::hasAny(["lt","en"], $request->get("lang"))) {
-                    session(["locale"=>$request->get("lang")]);
+                if($request->query("lang") == "lt" || $request->query("lang") == "en") {
+                    session(["locale" => $request->get("lang")]);
                 }
                 return redirect()->to("/");
             });

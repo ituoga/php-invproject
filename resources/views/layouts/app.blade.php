@@ -10,7 +10,6 @@
         window.Laravel = {
             csrfToken: '{{ csrf_token() }}'
         };
-        var baseUrlDay = "{{ url('/tasks/day/?date=') }}";
     </script>
 
     <meta name="theme-color" content="#0d085c" />
@@ -23,7 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'P6') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -95,6 +94,12 @@
 
             <nav class="nav-user">
                 <ul class="nav-user__list">
+{{--                    @dd(app()->getLocale())--}}
+                    @if(app()->getLocale() == "lt")
+                        <li class="nav-user__items"><a href="{{ url("/set-lang?lang=en") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">EN</span></a></li>
+                    @else
+                        <li class="nav-user__items"><a href="{{ url("/set-lang?lang=lt") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">LT</span></a></li>
+                    @endif
                     <li class="nav-user__items"><a href="{{ route("profile.edit") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">Profilis</span></a></li>
                     <li class="nav-user__items">
                         <a href="{{ url("/logout") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">Atsijungti</span></a>
@@ -132,7 +137,7 @@
                         <li class="nav-main__items">
                             <a href="{{ url('/') }}"
                                 class="nav-main__links {{ request()->is('dashboard') ? 'nav-main__links active' : '' }}"><i
-                                    class="icon-home" aria-hidden="true"></i>Pradžia</a>
+                                    class="icon-home" aria-hidden="true"></i>{{__("Pradžia")}}</a>
                         </li>
 
                         <li class="nav-main__items">
