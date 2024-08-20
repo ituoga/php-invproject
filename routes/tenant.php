@@ -96,6 +96,8 @@ Route::middleware([
         }); // end ValidateProfile
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::post("/profile/config", Config\StoreController::class)->name('config.update');
+
+//        Route::post("/profile/config", Config\StoreController::class)->name('config.update');
+        Route::post("/profile/config", \App\Actions\Tenant\Config\Invoice::class)->name('config.update');
     });
 });

@@ -50,22 +50,22 @@
             <dd><input type="text" name="config_pvm_from" value="{{ old("config_pvm_from",$config?->config_pvm_from) }}" placeholder="{{ __('45000') }}"></dd>
             <dt>{{ __('Įrašų per puslapį') }}:</dt>
             <dd><input type="text" name="config_rows_per_page" value="{{ old("config_rows_per_page",$config?->config_rows_per_page) }}" placeholder="{{ __('30') }}"></dd>
-        </dl>
+{{--        </dl>--}}
 
-        <div class="row">
-            <div class="col-6 col-md-auto m-b-20">
-                <button type="submit" class="btn btn--secondary btn--block-xs">{{__("Saugoti nustatymus")}}</button>
-            </div>
-        </div>
-    </form>
+{{--        <div class="row">--}}
+{{--            <div class="col-6 col-md-auto m-b-20">--}}
+{{--                <button type="submit" class="btn btn--secondary btn--block-xs">{{__("Saugoti nustatymus")}}</button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </form>--}}
 
 
-    <h2>{{ __('Serija ir Numeris') }}</h2>
+{{--    <h2>{{ __('Serija ir Numeris') }}</h2>--}}
 
-    <form method="post" action="{{ route('config.update') }}" class="form-regular clearfix">
-        @csrf
-        @method("post")
-        <dl>
+{{--    <form method="post" action="{{ route('config.update') }}" class="form-regular clearfix">--}}
+{{--        @csrf--}}
+{{--        @method("post")--}}
+{{--        <dl>--}}
             <dt>{{ __('Išankstinių serija') }}:</dt>
             <dd><input type="text" name="invoice_series_pre" value="{{ old("invoice_series_pre",$config?->invoice_series_pre) }}" placeholder="{{ __('P') }}"></dd>
             <dt>{{ __('Išankstinių sekantis numeris') }}:</dt>
