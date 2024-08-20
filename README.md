@@ -1,5 +1,5 @@
-# InvoiceMaster
-InvoiceMaster is a powerful invoicing solution designed to simplify the process of generating, managing, and tracking invoices. This project provides flexibility with three different types of invoices, a robust API for full integration, and an intuitive dashboard for monitoring payments and managing clients.
+# InvProject
+InvProject is a powerful invoicing solution designed to simplify the process of generating, managing, and tracking invoices. This project provides flexibility with three different types of invoices, a robust API for full integration, and an intuitive dashboard for monitoring payments and managing clients.
 
 ## Features
 * Multiple Invoice Types: Create and manage three different types of invoices tailored to your business needs:
@@ -15,7 +15,7 @@ InvoiceMaster is a powerful invoicing solution designed to simplify the process 
 
 * Automated Reminders: Set up automatic reminders to notify clients about overdue payments, helping you to maintain cash flow.
 
-* Secure & Scalable: Designed with security in mind, InvoiceMaster ensures that your data is protected. It’s also built to scale as your business grows.
+* Secure & Scalable: Designed with security in mind, InvProject ensures that your data is protected. It’s also built to scale as your business grows.
 
 ## Getting Started
 ### Prerequisites
