@@ -78,9 +78,7 @@ if(!empty($item)) {
                 resultCount: 0,
                 results: [],
                 fixLine(line, evt) {
-                    // console.log(this.results, evt);
                     const val = line.results.filter((item) => item.id == evt);
-                    console.log(val[0]);
                     line.product_name = val[0].label;
                     line.product_qty = val[0].quantity;
                     line.product_price = val[0].price;
