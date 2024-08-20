@@ -17,6 +17,26 @@
             }
         });
 
+        window.bindproductSearch = function() {
+
+
+        //     $('.product-searchable').autocomplete({
+        //         source: '/products/search',
+        //         minLength: 2,
+        //         select: function (event, ui) {
+        //             const klass = "." + $(this).attr("class").split(" ")[2];
+        //             setTimeout(function () {
+        //                 $(klass).filter(".product-price").val(ui.item.price);
+        //                 $(klass).filter(".product-vat").val(ui.item.vat);
+        //                 $(klass).filter(".product-unit").val(ui.item.unit)
+        //
+        //                 window.dispatchEvent(new CustomEvent('hehe'));
+        //             }, 100);
+        //         }
+        //     });
+        }
+        // window.bindproductSearch();
+
         // $('#id-761741, #id-458066').autocomplete({
         //     source: '/contrahents/search',
         //     minLength: 2,

@@ -2,10 +2,16 @@
     <div class="row gy-3">
         <div class="col-12 col-md-9 col-xl">
             <label for="id-283928" class="form-regular__label">{{ __('Paslaugos ar prekės pavadinimas') }}</label>
-            <div class="form-regular__wrap">
+            <div class="form-regular__wrap" style="position: relative;" >
                 <span class="form-regular__icon"><i class="icon-search" aria-hidden="true"></i></span>
-                <input x-model="line.product_name" type="text" x-bind:name="`lines[${idx}][product_name]`"
+                <input @@input.debounce="fetchResults(line)" x-model="line.product_name" type="text" x-bind:name="`lines[${idx}][product_name]`"
                     placeholder="{{ __('Įveskite paslaugos ar prekės pavadinimą') }}" id="id-283928">
+                <select @@click.outside="resetSearch(line)" x-show="line.resultCount > 0" name="customer" id="selecta" :size="line.resultCount+1" @@change="line.resultCount=0;showSearch=false;fixLine(line, $event.target.value)" style="width:90%; position:absolute; top:40px; left: 40px;">
+                    <option x-show="line.resultCount<1">Loading...</option>
+                    <template x-for="item in line.results">
+                        <option :value="item.id" x-text="item.label"></option>
+                    </template>
+                </select>
             </div>
         </div>
         <div class="col-6 col-md-3 col-xl-1">
@@ -67,6 +73,36 @@ if(!empty($item)) {
     <script>
         function invoiceLines() {
             return {
+                q: '',
+                showSearch:true,
+                resultCount: 0,
+                results: [],
+                fixLine(line, evt) {
+                    // console.log(this.results, evt);
+                    const val = line.results.filter((item) => item.id == evt);
+                    console.log(val[0]);
+                    line.product_name = val[0].label;
+                    line.product_qty = val[0].quantity;
+                    line.product_price = val[0].price;
+                    line.results = [];
+                    line.resultCount = 0;
+                    this.updateRows();
+                },
+                fetchResults(line) {
+                    fetch(`/products/search?term=${this.q}`)
+                        .then(response => {
+                            if (!response.ok) alert(`Something went wrong: ${response.status} - ${response.statusText}`)
+                            return response.json()
+                        })
+                        .then(data => {
+                            line.results = data
+                            line.resultCount = data.length
+                        })
+                },
+                resetSearch(){
+                    this.q =''
+                    this.showSearch = true
+                },
                 lines: @json($lines),
                 total: 0.00,
                 vat: 0.00,
@@ -78,6 +114,8 @@ if(!empty($item)) {
                         product_qty: 1,
                         vat: 1.21,
                         total_vat:0,
+                        results: [],
+                        resultCount: 0,
                     });
                 },
                 updateRows() {
@@ -119,7 +157,6 @@ if(!empty($item)) {
                 }
             }
         }
-        // a.lines = ;
-        // return a;
+
     </script>
 @endpush
