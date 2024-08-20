@@ -88,6 +88,7 @@ Route::middleware([
             Route::get("/contrahents/search", AutoCompleteController::class)->name("contrahents.search");
             Route::resource('contrahents', ContrahentController::class);
 
+            Route::get("/products/search", \App\Actions\Tenant\Product\Search::class);
             Route::resource("products", ProductController::class);
 
 

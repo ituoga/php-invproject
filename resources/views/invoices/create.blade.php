@@ -95,7 +95,7 @@
                                         <label for="id-866667"
                                                class="form-regular__label">{{ __('Sąskaitą išrašė') }}</label>
                                         <input type="text" name="invoice_author" value="{{ auth()->user()?->name }}"
-                                               placeholder="{{ __('Žmogus su geležine kauke') }}" id="id-866667">
+                                               placeholder="{{ __('Vardenis Pavardenis') }}" id="id-866667">
                                     </div>
                                     <div class="col-12">
                                         <label for="id-367923" class="form-regular__label">{{ __('Pastabos') }}</label>
@@ -110,7 +110,7 @@
                                         <label for="id-838479"
                                                class="form-regular__label">{{ __('Sąskaitą priėmė') }}</label>
                                         <input type="text" name="invoice_contrahent"
-                                               placeholder="{{ __('Žmogus su medine kauke') }}" id="id-838479">
+                                               placeholder="{{ __('Vardenis Pavardenis') }}" id="id-838479">
                                     </div>
                                     <div class="col-12">
                                         <label for="id-519043"

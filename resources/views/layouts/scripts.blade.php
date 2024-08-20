@@ -16,33 +16,5 @@
                 }, 10);
             }
         });
-
-        // $('#id-761741, #id-458066').autocomplete({
-        //     source: '/contrahents/search',
-        //     minLength: 2,
-        //     select: function (event, ui) {
-        //         console.log(ui.item);
-        //         $("input[name=clientid]").val(ui.item.id);
-        //         setTimeout(function () {
-        //             $("input[name=client_name]").val(ui.item.name);
-        //             $("input[name=client_phone]").val(ui.item.phone);
-        //         }, 20);
-        //     }
-        // });
-
-        // $('.atime').autocomplete({
-        //     source: '/completions/timetodecimal',
-        //     minLength: 2,
-        // });
     });
-
-/*
-    window.addEventListener("visibilitychange", function () {
-        console.log("Visibility changed");
-        if (document.visibilityState === "visible") {
-            console.log("APP resumed");
-            window.location.reload();
-        }
-    });
-    */
 </script>
