@@ -97,9 +97,11 @@ if(!empty($item)) {
                             line.resultCount = data.length
                         })
                 },
-                resetSearch(){
+                resetSearch(line){
                     this.q =''
                     this.showSearch = true
+                    line.results = [];
+                    line.resultCount = 0;
                 },
                 lines: @json($lines),
                 total: 0.00,
