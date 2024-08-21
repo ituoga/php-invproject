@@ -22,7 +22,7 @@ class MakeTranslations
     public function trans()
     {
 
-        Artisan::call("translatable:export", ["lang"=>"en,lt"]);
+        Artisan::call("translatable:export", ["lang"=>"lt"]);
         $systemTranslations = $this->getSystemTranslations('en');
         $systemMessages = Arr::dot($systemTranslations);
         $json = json_encode($systemMessages);
