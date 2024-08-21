@@ -20,7 +20,7 @@ jobs:
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
 
       - name: Export LT strings
-        run: php artisan translatable:export lt
+        run: php artisan trans:system
 
       - name: crowdin action
         uses: crowdin/github-action@v2
