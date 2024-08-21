@@ -22,17 +22,13 @@ class MakeTranslations
     public function trans()
     {
 
-        Artisan::call("translatable:export", ["lang"=>"en"]);
+        Artisan::call("translatable:export", ["lang"=>"en,lt"]);
         $raw = File::get(base_path("lang/en.json"));
-        $data = json_decode($raw, true);
         $systemTranslations = $this->getSystemTranslations('en');
         $systemMessages = Arr::dot($systemTranslations);
-        foreach($systemMessages as $k=>$v) {
-            if(!array_key_exists($k, $data)) {
-                $data[$k] = $v;
-            }
-        }
-        File::put(base_path("lang/en.json"), json_encode($data));
+        $json = json_encode($systemMessages);
+        File::put("lang/system-en.json", $json);
+
     }
 
 
