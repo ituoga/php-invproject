@@ -17,11 +17,11 @@ class Invoice
             'config_pvm_from' => 'required',
             'config_rows_per_page' => 'required',
             'invoice_series_pre' => 'required',
-            'invoice_number_pre' => 'required',
+            'invoice_number_pre' => 'required|numeric',
             'invoice_series_deb' => 'required',
-            'invoice_number_deb' => 'required',
+            'invoice_number_deb' => 'required|numeric',
             'invoice_series_cre' => 'required',
-            'invoice_number_cre' => 'required',
+            'invoice_number_cre' => 'required|numeric',
         ];
     }
 
