@@ -23,20 +23,20 @@ class ProfileService extends BaseService implements BaseServiceInterface
     }
 
     public function edit($id=null): Factory|View
-    {   
+    {
         return $this->view->edit([
             'user' => request()->user(),
             'config' => app(ConfigService::class)->read(),
         ]);
     }
 
-    public function update($id, $data): RedirectResponse 
+    public function update($id, $data): RedirectResponse
     {
-        
+
         $service = app(ConfigService::class);
-        $request = app(ProfileUpdateRequest::class);
-        
-        $service->store($request->validated());
+//        $request = app(ProfileUpdateRequest::class);
+
+        $service->create($data);
         // $request->user()->fill($request->validated());
 
         // if ($request->user()->isDirty('email')) {

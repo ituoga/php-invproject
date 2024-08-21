@@ -26,6 +26,12 @@ class InvoicesService extends BaseService implements BaseServiceInterface
         $this->view = $view;
     }
 
+    public function read($id): mixed
+    {
+        $item = $this->repository->read($id);
+        $config = app(ConfigService::class)->read();
+        return $this->view->view(['item' => $item, 'config' => $config]);
+    }
     public function create($data=[]): Factory|View
     {
         $config = app(ConfigService::class)->read();

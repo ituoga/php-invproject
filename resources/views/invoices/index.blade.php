@@ -18,6 +18,7 @@
           @include("partials.actions", [
             'item' => $item,
             'editRoute' => "invoices.edit",
+            'showRoute' => "invoices.read",
           ])
 
         </td>
