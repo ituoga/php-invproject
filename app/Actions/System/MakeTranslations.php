@@ -23,7 +23,6 @@ class MakeTranslations
     {
 
         Artisan::call("translatable:export", ["lang"=>"en,lt"]);
-        $raw = File::get(base_path("lang/en.json"));
         $systemTranslations = $this->getSystemTranslations('en');
         $systemMessages = Arr::dot($systemTranslations);
         $json = json_encode($systemMessages);
