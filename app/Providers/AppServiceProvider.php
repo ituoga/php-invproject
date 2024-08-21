@@ -30,6 +30,7 @@ use App\Views\ProductView;
 use App\Views\ProfileView;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -40,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        
+
 
         $this->provide(
             ProductController::class,
@@ -82,6 +83,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
         View::composer('layouts.app', function ($view) {
 
             /**
