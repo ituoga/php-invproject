@@ -28,14 +28,6 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-
-
-    {{--
-    FIXIT: font-ende padaryti stiliu input type=select. Yra 2 selectionai Tasko formoje.
-    --}}
-
-
-
     <link rel="stylesheet" href="{{ url('/8ylt-css/css/style.min.css?' . rand(999, 999999999)) }}" media="screen">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -95,23 +87,13 @@
             <nav class="nav-user">
                 <ul class="nav-user__list">
                     @if(app()->getLocale() == "lt")
-                        <li class="nav-user__items"><a href="{{ url("/set-lang?lang=en") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">EN</span></a></li>
+                        <li class="nav-user__items"><a href="{{ url("/set-lang?lang=en") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">LT</span></a></li>
                     @else
-                        <li class="nav-user__items"><a href="{{ url("/set-lang?lang=lt") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">LT</span></a></li>
+                        <li class="nav-user__items"><a href="{{ url("/set-lang?lang=lt") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">EN</span></a></li>
                     @endif
                     <li class="nav-user__items"><a href="{{ route("profile.edit") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">Profilis</span></a></li>
                     <li class="nav-user__items">
                         <a href="{{ url("/logout") }}" class="nav-user__links"><i class="icon-user" aria-hidden="true"></i><span class="hidden-xs">Atsijungti</span></a>
-                        <!-- Authentication -->
-                        {{-- <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                if (confirm('Ar tikrai norite atsijungti?')) {
-                  this.closest('form').submit();
-                }" class="nav-user__links">
-                                <i class="icon-logout" aria-hidden="true"></i><span class="hidden-xs">Atsijungti</span>
-                            </a>
-                        </form> --}}
                     </li>
                 </ul>
             </nav>
