@@ -19,13 +19,13 @@ jobs:
       - name: Install Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --ignore-platform-reqs
 
-      - name: Export LT strings
+      - name: Export strings to translate
         run: php artisan trans:system
 
       - name: crowdin action
         uses: crowdin/github-action@v2
         with:
-          source: lang/lt.json
+          source: lang/*.json
           translation: lang//%two_letters_code%.json
           upload_sources: true
           upload_translations: false
