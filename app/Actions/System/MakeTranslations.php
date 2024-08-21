@@ -17,17 +17,11 @@ class MakeTranslations
 
     public function handle()
     {
-        $this->trans();
-    }
-    public function trans()
-    {
-
         Artisan::call("translatable:export", ["lang"=>"input-lt"]);
         $systemTranslations = $this->getSystemTranslations('en');
         $systemMessages = Arr::dot($systemTranslations);
         $json = json_encode($systemMessages);
         File::put("lang/system-en.json", $json);
-
     }
 
 
