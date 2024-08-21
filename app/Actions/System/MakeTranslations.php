@@ -22,8 +22,8 @@ class MakeTranslations
     public function trans()
     {
 
-        Artisan::call("translatable:export", ["lang"=>"lt"]);
-        $raw = File::get(base_path("lang/lt.json"));
+        Artisan::call("translatable:export", ["lang"=>"en"]);
+        $raw = File::get(base_path("lang/en.json"));
         $data = json_decode($raw, true);
         $systemTranslations = $this->getSystemTranslations('en');
         $systemMessages = Arr::dot($systemTranslations);
@@ -32,7 +32,7 @@ class MakeTranslations
                 $data[$k] = $v;
             }
         }
-        File::put(base_path("lang/lt.json"), json_encode($data));
+        File::put(base_path("lang/en.json"), json_encode($data));
     }
 
 
