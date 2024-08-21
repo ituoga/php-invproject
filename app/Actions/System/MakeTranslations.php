@@ -24,7 +24,6 @@ class MakeTranslations
         File::put("lang/system-en.json", $json);
     }
 
-
     private function getSystemTranslations($locale = 'en')
     {
         $vendorLangPath = base_path("vendor/laravel/framework/src/Illuminate/Translation/lang/{$locale}");
