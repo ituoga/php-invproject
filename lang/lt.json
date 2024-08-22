@@ -101,7 +101,7 @@
     "validation.numeric": ":attribute laukelis turi būti skaičius.",
     "validation.password.letters": "The :attribute field must contain at least one letter.",
     "validation.password.mixed": "The :attribute field must contain at least one uppercase and one lowercase letter.",
-    "validation.password.numbers": "The :attribute field must contain at least one number.",
+    "validation.password.numbers": ":attribute laukelyke turi būti bent vienas skaičius.",
     "validation.password.symbols": "The :attribute field must contain at least one symbol.",
     "validation.password.uncompromised": "The given :attribute has appeared in a data leak. Please choose a different :attribute.",
     "validation.present": "The :attribute field must be present.",
