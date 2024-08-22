@@ -32,6 +32,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <style type="text/css">
+        .w-1\/8 {
+            width: 12.5%;
+        }
         a {
             text-decoration: none;
             color: black;
