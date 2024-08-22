@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Invoice;
 
 
-use App\Actions\Invoice\SetTypeAction;
+use App\Actions\Tenant\Invoice\SetTypeAction;
 use App\Enums\InvoiceTypeEnum;
 use App\Http\Controllers\Controller;
-use App\Services\BaseServiceInterface;
 
 class RedirectController extends Controller
 {

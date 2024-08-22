@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Invoice;
+namespace App\Actions\Tenant\Invoice;
 
 use App\Enums\InvoiceTypeEnum;
 
