@@ -7,7 +7,7 @@
     <tr>
       <th>{{ __('Dokumento Data') }}</th>
       <th>{{ __('Darbuotojas') }}</th>
-      <th class="w-1/8">{{ __('Veiksmai') }}</th>
+      <th class="w-1/8 text-right">{{ __('Veiksmai') }}</th>
     </tr>
     @foreach($items as $item)
 

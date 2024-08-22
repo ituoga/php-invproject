@@ -11,7 +11,7 @@
             <tr>
                 <th>{{__("Pavadinimas")}}</th>
                 <th>{{__("Kaina")}}</th>
-                <th class="w-1/8">{{__("Veiksmai")}}</th>
+                <th class="w-1/8 text-right">{{__("Veiksmai")}}</th>
             </tr>
             @foreach ($items as $item)
                 <tr data-tr="{{ $item->name }}">
