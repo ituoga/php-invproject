@@ -8,7 +8,7 @@
             <th>{{__("Pavadinimas")}}</th>
             <th>{{__("Telefonas")}}</th>
             <th>{{__("El. paštas")}}</th>
-            <th class="w-1/8">{{__("Veiksmai")}}</th>
+            <th>{{__("Veiksmai")}}</th>
         </tr>
         @foreach ($items as $contrahent)
             <tr data-tr="{{ $contrahent->name }}">
