@@ -43,7 +43,7 @@
             <input x-model="line.total" type="text" x-bind:name="`lines[${idx}][total]`" placeholder="0" id="id-471668" readonly>
         </div>
         <div class="col-auto">
-            <ul class="site-helpers justify-content m-t-34">
+            <ul class="site-helpers justify-content-end m-t-34">
                 <li class="site-helpers__items"><a href="js:;" @@click="deleteLine(line.id)"
                         class="site-helpers__links color-scarlet"><i class="icon-trash" aria-hidden="true"></i></a></li>
             </ul>
