@@ -61,7 +61,7 @@
                     OR  
                     (request()->has('is_manager') and $current_user->hasPermission('manage_clients')) 
                 )
-                    <ul class="site-helpers justify-content-end">
+                    <ul class="site-helpers">
                         {{--
                         <li class="site-helpers__items"><a href="#" class="site-helpers__links color-persian-green"><i class="icon-clipboard" aria-hidden="true"></i></a></li>
                         --}}

@@ -1,5 +1,5 @@
 @props(['item', 'showRoute' => null, 'editRoute' => null, "deleteRoute" => null])
-<ul class="site-helpers justify-content-end">
+<ul class="site-helpers justify-content">
     @if($showRoute)
     <li class="site-helpers__items">
         <a href="{{ route($showRoute, $item) }}" class="btn site-helpers__links color-persian-green"><i class="icon-clipboard" aria-hidden="true"></i></a>
