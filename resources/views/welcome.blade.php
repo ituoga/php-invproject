@@ -142,7 +142,7 @@
                     <nav class="nav-bottom">
                         <ul class="nav-bottom__list">
                             <li class="nav-bottom__items"><a href="/cdn-cgi/l/email-protection#a7c2d3c4c2d3c4c2d3c4e7c0cac6cecb89c4c8ca" class="nav-bottom__links"><img src="img/icon-mail.svg" alt=""> <span class="__cf_email__" data-cfemail="a0c5d4c3c5d4c3c5d4c3e0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</span></a></li>
-                            <li class="nav-bottom__items"><a href="tel:+37068686862" class="nav-bottom__links"><img src="img/icon-phone.svg" alt=""> +37068686862</a></li>
+                            <li class="nav-bottom__items"><a href="tel:+37063594444" class="nav-bottom__links"><img src="img/icon-phone.svg" alt=""> +37068686862</a></li>
                         </ul>
                     </nav>
                 </div>
