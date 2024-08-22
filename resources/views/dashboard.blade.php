@@ -129,7 +129,7 @@
                     <nav class="nav-bottom">
                         <ul class="nav-bottom__list">
                             <li class="nav-bottom__items"><a href="mailto:info@ituoga.lt"><span>info@ituoga.lt</span></a></li>
-                            <li class="nav-bottom__items"><a href="tel:+37063594444" class="nav-bottom__links"><img src="/img/icon-phone.svg" alt="">+37068686862</a></li>
+                            <li class="nav-bottom__items"><a href="tel:+37063594444" class="nav-bottom__links"><img src="/img/icon-phone.svg" alt="">+37063594444</a></li>
                         </ul>
                     </nav>
                 </div>
